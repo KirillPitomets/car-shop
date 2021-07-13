@@ -152,6 +152,7 @@ exports.cleanDist = cleanDist;
 
 exports.build = series(cleanDist, images, build);
 
-exports.default = parallel(browsersync, watching, scripts, styles, fonts, otfttf );
+exports.default = parallel(browsersync, watching, scripts, styles );
 
+exports.fonts = parallel(otfttf, fonts );
 

@@ -2,38 +2,53 @@
 $text-font: 'Montserrat', sans-serif;
 $caption-font: 'Ferry', sans-serif;
 // colors
-$or-grdient-btn-bg-first: #FD4B0D;
-$or-grdient-btn-bg-second: #FD4B0D;
-
-$pur-grdient-btn-bg-second: #474FA0;
-$pur-grdient-btn-bg-second: #888FDA;
-
+// search 
 $search-btn-color: #474FA0;
-
+$search-svg-color-hover: #fff;
+// light & dark
 $color-dark-theme: #fff;
 $color-light-theme: #191E20;
-
+// main & secondary 
 $main-color: #FE4B09;
 $secondary-color: #4B53A3;
-
+// active color
 $active-color: #FD4B0D;
-
+// placeholder
 $placeholder-dark-theme: #fff;
 $placeholder-light-theme: #8A8A99;
-
+// bg & body
 $bg-color: #191E20;
 $body-bg-color: #fff;
-
 $dis-active-color: #5E6162;
-
+// yt
 $yt-dark-color: #BC0209;
 $yt-color: #ED1C24;
-
+// input
 $light-bg-input: #E0E1EB;
 $light-border-input: #C2C2CB;
-
+// =============
 $dark-bg-input: #1A1D1E;
 $dark-border-input: #262728;
-
+// =============
 $orange-bg-input: rgba(0, 0, 0, 0.2);
 $orange-border-input: #D9663C;
+// border
+$border-header: #E0E1EB;
+// form
+$form-color-shadow: #E0E1E8;
+// form
+$card-color: #474FA0;
+// social colors
+$facebook-color: #3B5998;
+$telegram-color: #0798E3;
+$viber-color: #474FA0;
+// gradients
+$gradient-inst: radial-gradient(110.28% 110.28% at 20.5% 87.39%, #FAE100 0%, #FADC04 5.44%, #FBCE0E 11.67%, #FCB720 18.29%, #FE9838 25.14%, #FF7950 30.54%, #FF1C74 49.22%, #6C1CD1 100%);
+// =============
+$gradient-pur: linear-gradient(92.15deg, #474FA0 0.76%, #888FDA 120.91%);
+// =============
+$gradient-or: linear-gradient(92.15deg, #FD4B0D 0.76%, #FF855A 120.91%);
+// =============
+$gradient-blue: linear-gradient(179.31deg, rgba(5, 11, 65, 0.9) -39.12%, rgba(73, 81, 161, 0.9) 154.05%);;
+// line 
+$line-color: #E0E0EE;

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- link -->
+    <!-- links -->
+    <!-- splide -->
+    <link rel="stylesheet" href="./libs/splide-2.4.21/dist/css/splide-core.min.css">
+    <!-- my style -->
     <link rel="stylesheet" href="./css/style.min.css">
     <!-- title -->
     <title>Shop</title>
@@ -28,7 +31,7 @@
 <body>
 
 <header class="header">
-    <div class="panel">
+    <div class="panel panel_padding">
         <div class="panel__wrapper container">
                     
         <nav>
@@ -99,11 +102,13 @@
     </div>
 
     <div class="container">
-        <div class="header__inner">
+        <div class="header__inner header__inner_padding-bottom header__inner_underline">
             
-        <img class="logo" src="./images/logo.png" alt="Dealer Cars" title="Dealer Cars">
+        <a href="./index.html">
+            <img class="logo" src="./images/logo.png" alt="Dealer Cars" title="Dealer Cars">
+        </a>
     
-        <form action="#" class="search-site">
+        <form action="#" class="search-site search-site_marg">
             <input class="search-site__input" type="search" placeholder="Поиск по сайту">
 
             <button class="search-site__btn" type="submit">
@@ -111,11 +116,15 @@
                     <use href="./images/sprite.svg#search" />
                 </svg>
             </button>
+
         </form>
 
-        <a href="#" class="yt-btn">
+        <a href="#"  class="yt-btn yt-btn_marg">
             <span class="yt-btn__text">
-                dealer шоу
+                dealer 
+                <span class="yt-btn__span">
+                    шоу 
+                </span>
             </span>
             <div class="picture">
                 <svg class="svg svg_social svg_yt" viewBox="0 0 26 18">
@@ -124,65 +133,1445 @@
             </div>
         </a>
 
-        <div class="social-wrapper">
-            <a href="#" class="social__link social__link_insta">
+        <div class="social-wrapper social-wrapper_marg">
+
+            <a href="#" class="social__link social__link_marg social__link_insta">
                 <svg class="svg svg_social" viewBox="0 0 21 20">
                     <use href="./images/sprite.svg#instagram"/>
                 </svg>
             </a>
-            <a href="#" class="social__link social__link_facebook">
+
+            <a href="#" class="social__link social__link_marg social__link_facebook">
                 <svg class="svg svg_social" viewBox="0 0 11 23">
                     <use href="./images/sprite.svg#facebook"/>
                 </svg>
             </a>
-            <a href="#" class="social__link social__link_telegram">
+
+            <a href="#" class="social__link social__link_marg social__link_telegram">
                 <svg class="svg svg_social" viewBox="0 0 20 18">
                     <use href="./images/sprite.svg#telegram"/>
                 </svg>
             </a>
-            <a href="#" class="social__link social__link_viber">
+
+            <a href="#" class="social__link social__link_marg social__link_viber">
                 <svg class="svg svg_social" viewBox="0 0 22 23">
                     <use href="./images/sprite.svg#viber"/>
                 </svg>
             </a>
+
         </div>
 
-        <div class="phones">
+        <div class="phones phones_marg">
 
-            <div class="phones"> 
+            <div class="phones__wrapper phones__wrapper_marg"> 
 
-                <ul class="phone__numbers">
-                    <li class="phone__number phone__number_show">
-                        +38 (093) 616-44-41
-                    </li>
-                    <li class="phone__number">
-                        +38 (099) 654-22-16
-                    </li>
-                    <li class="phone__number">
-                        +38 (092) 222-56-13
-                    </li>
-                </ul>
+                <p id="active-num" class="phone__numbers phone__numbers_marg">
+                    +38 (093) 616-44-41
+                </p>
+                <!-- numbers list -->
+                <div class="phone__numbers_overflow">
+                    <ul id="numbers-list" data-call-phone="call-phone" class="phone__numbers phone__numbers-list ">
+                        <!-- phone__numbers-list_active -->
 
-                <button class="btn-arrow">
-                    <span class="arrow"></span>
-                </button>    
+                        <li class="phone__number phone__number_margin"
+                        data-phone="+380-93-616-44-41">
+                            +38 (093) 616-44-41
+                        </li>
+
+                        <li class="phone__number phone__number_margin"
+                        data-phone="+380-99-654-22-16">
+                            +38 (099) 654-22-16
+                        </li>
+
+                        <li class="phone__number phone__number_margin"
+                        data-phone="+380-92-222-56-13">
+                            +38 (092) 222-56-13
+                        </li>
+                        
+                    </ul>
+                </div>
+                <!-- /.numbers list -->
+
+                <button data-list="numbers-list" class="btn-arrow btn-arrow_phone phone-JS"></button> <!-- btn-arrow_rotate-180 -->    
 
             </div>
 
-            <a href="#" class="call">
+            <a id="call-phone" href="tel:+380-93-616-44-41" class="call call_marg">
                 <svg class="svg svg_phone" viewBox="0 0 13 13">
                     <use href="./images/sprite.svg#phone" />
                 </svg>
-                Заказать звонок
+                <span class="call__text call__text_marg">Заказать звонок</span>
             </a>
 
         </div>
 
         </div>
+
+        <div class="header__inner ">
+            <ul class="nav__list w-100">
+                <!-- big-btn -->
+                <li class="nav__item">
+                    <a href="#" class="nav__btn-big">
+
+                        <div class="icon">
+                            <svg class="svg svg_btn-big" viewBox="0 0 28 28">
+                                <use href="./images/sprite.svg#tire"/>
+                            </svg>
+                        </div>
+
+                        <p class="nav__btn-big__text uppercase">
+                            каталог
+                        </p>
+
+                    </a>
+                </li>
+
+                <li class="nav__item nav__item_marg-zero">
+                    <a href="#" class="nav__link nav__link_font uppercase">
+                        автомобили
+                    </a>
+                </li>
+                <li class="nav__item nav__item_marg-zero">
+                    <a href="#" class="nav__link nav__link_font uppercase">
+                        мото техника
+                    </a>
+                </li>
+                <li class="nav__item nav__item_marg-zero">
+                    <a href="#" class="nav__link nav__link_font uppercase">
+                        электроника
+                    </a>
+                </li>
+                <li class="nav__item nav__item_marg-zero">
+                    <a href="#" class="nav__link nav__link_font uppercase">
+                        под заказ
+                    </a>
+                </li>
+                <li class="nav__item nav__item_marg-zero">
+                    <a href="#" class="nav__link nav__link_font uppercase">
+                        в украине
+                    </a>    
+                </li>
+                <li class="nav__item nav__item_marg-zero">
+                    <a href="#" class="nav__link nav__link_font uppercase">
+                        услуги
+                    </a>
+                </li>
+                <li class="nav__item nav__item_marg-zero">
+                    <a href="#" class="nav__link nav__link_font uppercase">
+                        контакты
+                    </a>
+                </li>
+            
+            </ul>
+        </div>
+
     </div>
+    
 
 </header>
 
+
+<main>
+    <section class="home_marg-top">
+        <div class="container">
+
+            <div id="home" class="splide">
+                <!-- arrows -->
+
+                <div class="splide__arrows slide__arrows">
+                    <button id="home-prev-btn" class="splide__arrow splide__arrow--prev slide__circles-arrow slide__circles-arrow-180">
+
+                        <svg class="svg-triangle-arrow" viewBox="0 0 10 12">
+                            <use href="./images/sprite.svg#arrow-triangle" />
+                        </svg>
+
+                    </button>
+
+                    <button id="home-next-btn" class="splide__arrow splide__arrow--next slide__circles-arrow">
+
+                        <svg class="svg-triangle-arrow" viewBox="0 0 10 12">
+                            <use href="./images/sprite.svg#arrow-triangle" />
+                        </svg>
+
+                    </button>
+
+                    <p class="num-pagination num-pagination_marg-left">
+                        <span id="home-num-acitve" class="slide-num slide-num_active">
+                            01
+                        </span>
+                        <span id="home-num-all-slide" class="slide-num ">
+                            03
+                        </span>
+                    </p>
+
+                </div>
+                <!-- /.arrows -->
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <!-- 1 -->
+                        <li class="splide__slide">
+                            <div class="home-slide">
+
+                               <div class="home-slide__bg">
+                                   <img class="home-slide__shine" src="./images/home-page/home/slide-1/elipse.png" alt="elipse">
+
+                               </div>
+
+                                <div class="home-slide__content">
+
+                                    <h1 class="home-slide__title uppercase">
+                                        заголовок слайдера  <br>
+                                        <span class="home-slide__title home-slide__title_color"> возможно в 2 строки</span>
+                                    </h1>
+
+                                    <p class="home-slide__text">
+                                        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+                                    </p>
+
+                                    <button class="btn btn_slide btn_gradient-pur">
+                                        подробнее
+                                    </button>
+
+                                </div>
+                                
+                                <div class="home-slide__img-wrapper">
+                                    <img class="home-slide__img" src="./images/home-page/home/slide-1/car.png" alt="car" title="car">
+                                </div>
+
+                            </div>
+
+                        </li>
+                        <!-- 2 -->
+                        <li class="splide__slide">
+                            <div class="home-slide">
+
+                                <div class="home-slide__bg">
+                                    <img class="home-slide__shine" src="./images/home-page/home/slide-2/bg.jpg" alt="elipse">
+                                </div>
+ 
+                                 <div class="home-slide__content">
+ 
+                                     <h1 class="home-slide__title uppercase">
+                                         выбери себе <br>
+                                         <span class="home-slide__title home-slide__title_color"> двухколесного друга </span>
+                                     </h1>
+ 
+                                     <p class="home-slide__text">
+                                         Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+                                     </p>
+ 
+                                     <button class="btn btn_slide btn_gradient-pur">
+                                         подробнее
+                                     </button>
+ 
+                                 </div>
+                                 
+                                 <div class="home-slide__img-wrapper">
+                                     <img class="home-slide__img" src="./images/home-page/home/slide-2/bikes.png" alt="car" title="car">
+                                 </div>
+ 
+                             </div>
+ 
+                        </li>
+                        <!-- 3 -->
+                        <li class="splide__slide">
+
+                            <div class="home-slide">
+
+                                <div class="home-slide__bg">
+                                    <img class="home-slide__shine" src="./images/home-page/home/slide-3/bg.jpg" alt="elipse">
+                                </div>
+ 
+                                 <div class="home-slide__content">
+ 
+                                     <h1 class="home-slide__title uppercase home-slide__title_color" >
+                                         немецкий кросовер из<br>
+                                         сша с
+                                         <span class="home-slide__title"> 
+                                            экономий 30%
+                                        </span>
+                                     </h1>
+ 
+                                     <p class="home-slide__text">
+                                         Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+                                     </p>
+ 
+                                     <button class="btn btn_slide btn_gradient-pur">
+                                        подробнее
+                                     </button>
+ 
+                                 </div>
+                                 
+                                 <div class="home-slide__img-wrapper">
+                                     <img class="home-slide__img" src="./images/home-page/home/slide-3/car.png" alt="car" title="car">
+                                 </div>
+ 
+                             </div>
+ 
+                        </li>
+                       
+
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="section_marg-meduim">
+        <div class="container">
+                <!-- Кирилл проверь класс `нужен ли он` .section-title -->
+            <div>
+                <h2 class="section-title__title">
+                    подобрать авто  <br>
+                    <span class="section-title__subtitle">
+                        выгода до 40% от рынка украины
+                    </span>
+                </h2>
+            </div>
+
+            <div class="section-contnet section-contnet_marg-top ">
+
+                <!-- === form === -->
+                <form id="car-filter" action="#" method="POST" class="big-form big-form_marg-top section-contnet__item">
+
+                    <div class="big-form__wrapper">
+                        <!-- left -->
+                        <div class="big-form__item">
+
+                            <div class="select select_marg-bot">
+                                <h2 class="select__title uppercase">
+                                    Тип транспортного средства
+                                </h2>
+                                
+                                <input id="car-type" name="car-type" type="hidden" value="">
+                                
+                                <div class="select-drop">
+
+                                    <button class="select-drop__trigger select-drop__trigger_placeholder drop-menu-trigger-JS"
+                                            data-sheet="car-type-sheet" data-car-input="car-type">
+                                        <span class="buttom-content-JS">Автомобиль</span>
+
+                                        <div class="btn-arrow arrow-JS"></div>
+
+                                    </button>
+                                    <!-- drop menu -->
+                                    <div class="drop-sheet_overflow drop-sheet_z-index-4">
+                                        <ul id="car-type-sheet" class="drop-sheet"> <!-- drop-sheet_active -->
+                                            <li class="drop-sheet__item" data-value="Легковой" >Легковой</li>
+                                            <li class="drop-sheet__item" data-value="Грузовой" >Грузовой</li>
+                                            <li class="drop-sheet__item" data-value="Мотоцикл" >Мотоцикл</li>
+                                            <li class="drop-sheet__item" data-value="Автомобиль" >Автомобиль</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="select select_marg-bot">
+                                <h2 class="select__title uppercase">
+                                    Марка
+                                </h2>
+                                
+                                <input id="car-brand" name="car-brand" type="hidden" value="">
+                                
+                                <div class="select-drop">
+
+                                    <button class="select-drop__trigger select-drop__trigger_placeholder drop-menu-trigger-JS"
+                                            data-sheet="car-brand-sheet" data-car-input="car-brand">
+                                        <span class="buttom-content-JS">Все</span>
+
+                                        <div class="btn-arrow arrow-JS"></div>
+
+                                    </button>
+                                    <!-- drop menu -->
+                                    <div class="drop-sheet_overflow drop-sheet_z-index-3">
+                                        <ul id="car-brand-sheet" class="drop-sheet"> <!-- drop-sheet_active -->
+                                            <li class="drop-sheet__item" data-value="Audi" >Audi</li>
+                                            <li class="drop-sheet__item" data-value="Грузовой" >Lexus</li>
+                                            <li class="drop-sheet__item" data-value="Мотоцикл" >BMW</li>
+                                            <li class="drop-sheet__item" data-value="all" >Все</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="select select_marg-bot">
+                                <h2 class="select__title uppercase">
+                                    Модель
+                                </h2>
+                                
+                                <input id="car-model" name="car-model" type="hidden" value="">
+                                
+                                <div class="select-drop">
+
+                                    <button class="select-drop__trigger select-drop__trigger_placeholder drop-menu-trigger-JS"
+                                            data-sheet="car-model-sheet" data-car-input="car-model">
+                                        <span class="buttom-content-JS">все</span>
+
+                                        <div class="btn-arrow arrow-JS"></div>
+
+                                    </button>
+                                    <!-- drop menu -->
+                                    <div class="drop-sheet_overflow">
+                                        <ul id="car-model-sheet" class="drop-sheet"> <!-- drop-sheet_active -->
+                                            <li class="drop-sheet__item" data-value="Легковой" >модель 1</li>
+                                            <li class="drop-sheet__item" data-value="Грузовой" >модель 2</li>
+                                            <li class="drop-sheet__item" data-value="Мотоцикл" >модель 3</li>
+                                            <li class="drop-sheet__item" data-value="all" >все</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        
+                        </div>
+                        <!-- right -->
+                        <div class="big-form__item">
+
+                            <div class="big-form__row">
+                                <!-- == select == -->
+                                <div class="select select_50 select_marg-bot">
+                                    <h2 class="select__title uppercase">
+                                        Год выпуска
+                                    </h2>
+                                    
+                                    <input id="year-of-issue-min" name="car-year-of-issue-min" type="hidden" value="">
+                                    
+                                    <div class="select-drop">
+
+                                        <button class="select-drop__trigger select-drop__trigger_placeholder drop-menu-trigger-JS"
+                                                data-sheet="car-year-of-issue-min" data-car-input="year-of-issue-min" >
+                                            <span class="buttom-content-JS">От</span>
+
+                                            <div class="btn-arrow arrow-JS"></div>
+
+                                        </button>
+                                        <!-- drop menu -->
+                                        <div class="drop-sheet_overflow drop-sheet_z-index-3">
+                                            <ul id="car-year-of-issue-min" class="drop-sheet"> <!-- drop-sheet_active -->
+                                                <li class="drop-sheet__item" data-value="1990" >1990</li>
+                                                <li class="drop-sheet__item" data-value="2000" >2000</li>
+                                                <li class="drop-sheet__item" data-value="2005" >2005</li>
+                                                <li class="drop-sheet__item" data-value="all" >Все</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- == select == -->
+                                <div class="select select_50 select_marg-bot">
+                                    
+                                    <input id="year-of-issue-max" name="car-year-of-issue-max" type="hidden" value="">
+                                    
+                                    <div class="select-drop">
+        
+                                        <button class="select-drop__trigger select-drop__trigger_placeholder drop-menu-trigger-JS"
+                                                data-sheet="car-year-of-issue-max" data-car-input="year-of-issue-max" >
+                                            <span class="buttom-content-JS">До</span>
+        
+                                            <div class="btn-arrow arrow-JS"></div>
+        
+                                        </button>
+                                        <!-- drop menu -->
+                                        <div class="drop-sheet_overflow drop-sheet_z-index-3">
+                                            <ul id="car-year-of-issue-max" class="drop-sheet"> <!-- drop-sheet_active -->
+                                                <li class="drop-sheet__item" data-value="1990" >1990</li>
+                                                <li class="drop-sheet__item" data-value="2000" >2000</li>
+                                                <li class="drop-sheet__item" data-value="2005" >2005</li>
+                                                <li class="drop-sheet__item" data-value="all" >Все</li>
+                                            </ul>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="big-form__row">
+
+                                <!-- == select == -->
+                                <div class="select select_50 select_marg-bot">
+                                    <h2 class="select__title uppercase">
+                                        Стоимость
+                                    </h2>
+                                    
+                                    <input id="car-price-min" name="car-type" type="hidden" value="">
+                                    
+                                    <div class="select-drop">
+
+                                        <button class="select-drop__trigger select-drop__trigger_placeholder drop-menu-trigger-JS"
+                                                data-sheet="car-price-sheet-min" data-car-input="car-price-min" >
+                                            <span class="buttom-content-JS">От</span>
+
+                                            <div class="btn-arrow arrow-JS"></div>
+
+                                        </button>
+                                        <!-- drop menu -->
+                                        <div class="drop-sheet_overflow">
+                                            <ul id="car-price-sheet-min" class="drop-sheet"> <!-- drop-sheet_active -->
+                                                <li class="drop-sheet__item" data-value="20000" >20.000$</li>
+                                                <li class="drop-sheet__item" data-value="50000" >50.000$</li>
+                                                <li class="drop-sheet__item" data-value="100000" >100.000$</li>
+                                                <li class="drop-sheet__item" data-value="200000" >200.000$</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- == select == -->
+                                <div class="select select_50 select_marg-bot">
+                                    
+                                    <input id="car-price-max" name="car-type" type="hidden" value="">
+                                    
+                                    <div class="select-drop">
+        
+                                        <button class="select-drop__trigger select-drop__trigger_placeholder drop-menu-trigger-JS"
+                                                data-sheet="car-price-sheet-max" data-car-input="car-price-max" >
+                                            <span class="buttom-content-JS">До</span>
+        
+                                            <div class="btn-arrow arrow-JS"></div>
+        
+                                        </button>
+                                        <!-- drop menu -->
+                                        <div class="drop-sheet_overflow">
+                                            <ul id="car-price-sheet-max" class="drop-sheet"> <!-- drop-sheet_active -->
+                                                <li class="drop-sheet__item" data-value="20000" >20.000$</li>
+                                                <li class="drop-sheet__item" data-value="50000" >50.000$</li>
+                                                <li class="drop-sheet__item" data-value="100000" >100.000$</li>
+                                                <li class="drop-sheet__item" data-value="200000" >200.000$</li>
+                                            </ul>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn_gradient-pur btn_form" type="submit">
+                                подобрать
+                            </button>
+
+                        </div>
+                        
+                    </div>
+
+                </form>
+
+                <aside class="section-contnet__item section-contnet__item_aside">
+                    
+                    <div class="aside-block aside-block_marg-top aside-block_marg-bottom">
+
+                        <div class="aside-block__picture">
+                            
+                            <svg class="svg svg_aside-block" viewBox="0 0 35 36">
+                                <use href="./images/sprite.svg#steering-wheel"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="aside-block__content">
+                            
+                            <h3 class="aside-block__title uppercase">
+                                название преимущества
+                            </h3>
+                            <p>
+                                Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.
+                            </p>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="aside-block aside-block_marg-bottom">
+
+                        <div class="aside-block__picture">
+                            
+                            <svg class="svg svg_aside-block" viewBox="0 0 35 35">
+                                <use href="./images/sprite.svg#check"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="aside-block__content">
+                            
+                            <h3 class="aside-block__title uppercase">
+                                название преимущества
+                            </h3>
+                            <p>
+                                Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.
+                            </p>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="aside-block aside-block_marg-bottom">
+
+                        <div class="aside-block__picture">
+                            
+                            <svg class="svg svg_aside-block" viewBox="0 0 32 33">
+                                <use href="./images/sprite.svg#checked"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="aside-block__content">
+                            
+                            <h3 class="aside-block__title uppercase">
+                                название преимущества
+                            </h3>
+                            <p>
+                                Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.
+                            </p>
+                        </div>
+                        
+                    </div>
+                
+                </aside>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section_marg-meduim">
+        <div class="container">
+
+            <div class="section-title">
+                <h2 class="section-title__title section-title__title_line">
+                    топовые автомобили
+                </h2>
+
+                <div class="line"></div>
+
+                <button class="btn section-title__btn_line btn_gradient-or">
+                    смотреть все
+                </button>
+            </div>
+
+            <div class="shop shop_marg-top">
+
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/01.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/02.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/03.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/04.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/04.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/03.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/01.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===== card ===== -->
+                <div class="shop-card shop-card_marg-bottom shop-card_padding">
+                    <div class="shop-card__wrapper">
+                        <div class="bg-img shop-card__img">
+                            <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/02.jpg" alt="Toyota camry" title="Toyota Camry">
+                        </div>
+
+                        <div class="shop-card__content">
+                            <h3 class="shop-card__title uppercase">
+                                toyota camry
+                            </h3>
+                            <p class="shop-card__text">
+                                Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                            </p>
+        
+                            <div class="shop-card__footer">
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+                                <button class="btn btn_gradient-pur shop-card__btn">
+                                    подбробнее
+                                </button>
+                            </div>
+                        </div>
+                        <!-- === info === -->
+                        <div class="shop-card__info">
+                            <div class="shop-card__content">
+                                <h3 class="shop-card__title shop-card__title_color uppercase">
+                                    toyota camry
+                                </h3>
+                                <p class="shop-card__text shop-card__text_color shop-card__text_info">
+                                    Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                                </p>
+                                <p class="shop-card__price">
+                                    39 999 <span>$</span>
+                                </p>
+
+                                <div class="shop-card__pictures">
+                                    
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/fuel-pump.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            Бензин
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/hourglass.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2012 <span>год</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/turbo.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            2.5 <span>литра</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="shop-card__picture-wrapper">
+                                        
+                                        <div class="shop-card__picture">
+                                            <img class="shop-card__icon" src="./images/shop-card/icon/tire.svg" alt="Benzine">
+                                        </div>
+
+                                        <p class="shop-card__des uppecrase">
+                                            217 000 <span>км</span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn shop-card__info-btn uppercase">
+                                    расчитать стоимость
+                                </button>
+
+                                <button class="btn shop-card__btn shop-card__btn_active uppercase">
+                                    подробнее
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- splide -->
+<script src="./libs/splide-2.4.21/dist/js/splide.min.js"></script>
 <script src="./js/main.min.js"></script>
 </body>
 </html>
