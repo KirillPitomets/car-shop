@@ -22,8 +22,11 @@ body {
     width: 100%;
     max-width: 1480px;
     padding: 0 15px;
-    margin: 0 auto;
+    margin: 0 auto; 
 
+    &_pos-r {
+        position: relative;
+    }
 }
 
 button {
@@ -82,7 +85,7 @@ button {
         height: 12px;
     }
 
-    &_aside-block {
+    &_features-block {
         width: 35px;
         height: 35px;
 
@@ -117,6 +120,12 @@ button {
 
 .uppercase {
     text-transform: uppercase;
+}
+
+// ======= text-color ======
+
+.text-color {
+    color: $main-color;
 }
 
 // ========= Panel ========
@@ -187,14 +196,16 @@ button {
         transition: opacity .2s ease, transform .2s ease;
     }   
 
-    &:hover {
-        color: $active-color;
-        &::after {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-    }   
-
+    @media ( hover ) {
+        &:hover {
+            color: $active-color;
+            &::after {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }   
+    }
+        
     &_font {
         font-family: $caption-font;
         font-weight: 900;
@@ -253,30 +264,46 @@ button {
 
     &_gradient-or {
         font-family: $caption-font;
-        padding: 7.2% 21%;
+        // padding: 1.3rem 21%;
+        padding: 1.3rem 1.8rem;
+
 
         background: $gradient-or;
         transition: box-shadow .2s ease;
 
         color: $color-dark-theme;
 
-        &:hover {
+        @media ( hover ) {
+            &:hover {
+                box-shadow: 0 0 .8rem $main-color;
+            }
+        }
+        &:focus {
             box-shadow: 0 0 .8rem $main-color;
         }
+      
+
     }
 
     &_gradient-pur {
         background: $gradient-pur;
 
         font-family: $caption-font;
-        padding: 7.2% 21%;
+        // padding: 1.3rem 21%;
+        padding: 1.3rem 1.8rem;
+
         background: $gradient-pur;
 
         color: $color-dark-theme;
 
         transition: box-shadow .2s ease;
 
-        &:hover {
+        @media ( hover ) {
+            &:hover {
+                box-shadow: 0 0 .8rem $secondary-color;
+            }
+        }
+        &:focus {
             box-shadow: 0 0 .8rem $secondary-color;
         }
     }
@@ -333,6 +360,19 @@ button {
         padding: 3.5% 10%;
     }
 
+    &_w-100 {
+        width: 100%;
+        padding:  1.5% 0;
+    }
+
+    &_contact {
+        padding-right: 2.4%;
+        padding-left: 2.4%;
+    }
+    &_marg-top {
+        margin-top: .9%;
+    }
+
 }
 
 
@@ -365,6 +405,8 @@ button {
 
 
     }
+
+
 
 }
 
@@ -402,9 +444,13 @@ button {
     max-width: 491px;
     display: flex;
 
+ 
+
     &_marg {
         margin: 0 1.82% 0 2.9%;
     }
+
+
 }
 
 .search-site__input {
@@ -421,6 +467,26 @@ button {
     line-height: 1.3;
     font-weight: 500;
     font-style: normal;
+
+    border-left: 2px solid transparent;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+
+    transition: border .2s ease;
+    
+    @media (hover) {
+        &:hover {
+            border-left: 2px solid $secondary-color;
+            border-top: 2px solid $secondary-color;
+            border-bottom: 2px solid $secondary-color;
+        }
+    }
+
+    &:focus {
+        border-left: 2px solid $secondary-color;
+        border-top: 2px solid $secondary-color;
+        border-bottom: 2px solid $secondary-color;
+    }
 }
 
 .search-site__btn {
@@ -433,12 +499,15 @@ button {
 
     transition: all .2s ease;
     
-    &:hover {
-        background: $search-btn-color;
-        .svg_search {
-            fill: $search-svg-color-hover;
+    @media ( hover ) {
+        &:hover {
+            background: $search-btn-color;
+            .svg_search {
+                fill: $search-svg-color-hover;
+            }
         }
     }
+
 }
 
 // ======= yt ======
@@ -454,8 +523,10 @@ button {
 
     transition: box-shadow .2s ease;
 
-    &:hover {
-        box-shadow: 0 0 .8rem $yt-color;
+    @media ( hover ) {
+        &:hover {
+            box-shadow: 0 0 .8rem $yt-color;
+        }
     }
 
     &_marg {
@@ -513,32 +584,43 @@ button {
         margin: 0 .37rem;
     }
 
-    &_insta {
-        background: $gradient-inst;
+        &_insta {
+            background: $gradient-inst;
 
-        &:hover {
-            box-shadow: 0 0 .8rem .1rem  $active-color;
+            @media ( hover ) {
+                &:hover {
+                    box-shadow: 0 0 .8rem .1rem  $active-color;
+                }
+            }
+
         }
-    }
-    
+        
     &_facebook {
         background: $facebook-color;
-        &:hover {
-            box-shadow: 0 0 .8rem .1rem  $facebook-color;
+
+        @media ( hover ) {
+            &:hover {
+                box-shadow: 0 0 .8rem .1rem  $facebook-color;
+            }
         }
+
     }
 
     &_telegram {
         background: $telegram-color;
-        &:hover {
-            box-shadow: 0 0 .8rem .1rem  $telegram-color;
+        @media ( hover ) {
+            &:hover {
+                box-shadow: 0 0 .8rem .1rem  $telegram-color;
+            }
         }
     }
 
     &_viber {
         background: $viber-color;
-        &:hover {
-            box-shadow: 0 0 .8rem .1rem  $viber-color;
+        @media ( hover ) {
+            &:hover {
+                box-shadow: 0 0 .8rem .1rem  $viber-color;
+            }
         }
 
     }
@@ -686,7 +768,6 @@ button {
 
 
 // ========= home ========
-// =========================
 .home_marg-top {
     margin-top: 1rem;
 }
@@ -742,10 +823,7 @@ button {
         line-height: 1.3;
         letter-spacing: 0em;
 
-        color: $active-color;
-        &_color {
-            color: $color-dark-theme;
-        }
+        color: $color-dark-theme;
     }
 
     &__text {
@@ -773,7 +851,6 @@ button {
 
 // ======= slide arrow ======
 
-
 .slide__arrows {
     display: flex;
     align-items: center;
@@ -798,8 +875,10 @@ button {
         border: 2px solid $active-color;
         background: $active-color;
 
-        &:hover {
-            box-shadow: 0 0 0.8rem $active-color;
+        @media ( hover ) {
+            &:hover {
+                box-shadow: 0 0 0.8rem $active-color;
+            }
         }
     }
 
@@ -809,7 +888,6 @@ button {
 }
 
 .num-pagination {
-
 
     &_marg-left {
         margin-left: 1.5rem;
@@ -852,7 +930,15 @@ button {
     align-items: center;
     justify-content: space-between;
 
+    // modifiers
 
+    &_center {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    // elements
     &__title {
         font-family: $caption-font;
         font-size: 2.5rem;
@@ -861,9 +947,25 @@ button {
         line-height: 1.1;
         letter-spacing: 0em;
 
+        &_center {
+            text-align: center;
+        }
+
         &_line {
             white-space: nowrap;
             margin-right: 3%;
+        }
+    
+        &_small {
+            width: 100%;
+            max-width: 1090px;
+
+            font-size: 2rem;
+            line-height: 1.3;
+        }
+
+        &_light-color {
+            color: $color-dark-theme;
         }
     }
         
@@ -878,33 +980,135 @@ button {
         margin-left: 3%;
         padding: 1.5% 2.9%;
 
-
     }
 
+    &__text {
+        width: 100%;
+        max-width:  955px;
+
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: 0em;
+        font-style: normal;
+
+
+        margin-top: 1.6% ;
+        margin-bottom: 2.9% ;
+    }
 
 }
 
-.section_marg-meduim {
-    margin-top: 4.2%;
+// ======= section ======
+
+.section {
+
+    // marg
+    &_marg-top-medium {
+        margin-top: 4.2%;
+    }
+    
+    &_marg-top-big {
+        margin-top: 8%;
+    }
 }
 
-.section-contnet {
+// ======= section-content ======
+
+.section-content {
     display: flex;
     justify-content: space-between;
 
-
-    margin: 0 -20px;
-    &__item {
-        margin: 0 20px;
-        
-        &_aside {
-            width: 42%;
-
-        }
-    }
-
+    
+    // modifiers
     &_marg-top {
         margin-top: 2.2rem;
+    }
+    
+    &_contact-form {
+        margin: 0 -20px;
+        margin-top: 2.2rem;
+
+    }
+
+    &_message-form {
+        position: relative;
+    }
+
+    // elements
+    &__item {
+        margin: 0 20px;
+        &_features {
+            width: 42%;
+        }
+
+        &_55 {
+            width: 55%;
+        }
+
+        &_45 {
+            width: 45%;
+        }
+
+        &_message-form {
+            padding: 4.6% 0 4.6% 5.4%;
+        }
+    
+    }
+    
+    &__wrapper {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__bg-img {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        object-fit: cover;
+        object-position: center;
+        border-radius: 16px;
+
+    }
+
+    &__img {
+        max-width: 100%;
+        margin-top: -19%;
+    }
+
+}
+// ======= section-contact ======
+.section-contact {
+    color: $color-dark-theme;
+
+    &__wrapper {
+        position: relative;
+        background: rgba( 42, 45, 79, .88);
+        padding: 4% 0;
+    }
+}
+
+.section-bg-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    object-fit: cover;
+    object-position: center;
+    &_contact {
+        width: calc(100% - 30px);
+        left: 15px;
     }
 }
 
@@ -922,13 +1126,14 @@ button {
 
 .big-form {
     width: 78%;
+    height: 100%;
     box-shadow: 0px 4px 74px $form-color-shadow;
     border-radius: 16px;
 
 
     &__wrapper {    
         width: 100%;
-        height: 100%;
+        height: inherit;
 
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -999,6 +1204,11 @@ button {
         &_placeholder {
             color: $placeholder-light-theme;
         }
+
+        &:focus {
+            border: 1px solid $secondary-color;
+        }
+
     }
 }
 // ======= drop-sheet ======
@@ -1007,8 +1217,8 @@ button {
 
     padding: .2rem ;
     
-    border: 1px solid $light-border-input;
-    background: $light-bg-input;
+    border: 1px solid $light-border-contact-input;
+    background: $light-bg-contact-input;
 
     transform: translate(0, -100%);
     visibility: hidden;
@@ -1058,7 +1268,7 @@ button {
 }
 // ======= aside-block / choose car ======
 
-.aside-block {  
+.features-block {  
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -1102,13 +1312,10 @@ button {
 
 // ======= shop-card ======
 .shop {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-
-    margin: 0 -10px;
 
     &_marg-top {
         margin-top: 3.8%;
@@ -1116,15 +1323,10 @@ button {
 }
 
 .shop-card {
-    width: 25%;
+    width: 23.5%;
 
     &_marg-bottom {
-        margin-bottom: 2%;
-
-    }
-
-    &_padding {
-        padding: 0 15px;
+        margin-bottom: 2.4%;
     }
 
     &__wrapper {
@@ -1137,8 +1339,10 @@ button {
         position: relative;
 
         &:hover .shop-card__info {
+            visibility: visible;
             opacity: 1;
         }
+        
     }
 
     &__content {
@@ -1182,9 +1386,13 @@ button {
             color: #4951A1;
             background: $color-dark-theme;
             transition: box-shadow .2s ease;
-            &:hover {
-                box-shadow: 0 0 .8rem  $color-dark-theme;
+
+            @media (hover) {
+                &:hover {
+                    box-shadow: 0 0 .8rem  $color-dark-theme;
+                }
             }
+
         }
 
     }
@@ -1208,6 +1416,7 @@ button {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
 
@@ -1222,9 +1431,11 @@ button {
 
         background: $gradient-blue;
         color: $color-dark-theme;
+
+        visibility: hidden;
         opacity: 0;
-        transition: opacity .5s ease;
-        
+
+        transition: opacity .3s ease-in-out, visibility .3s ease;
     }
     
     &__pictures {
@@ -1273,10 +1484,12 @@ button {
         background:  rgba(255, 255, 255, .12);
         transition: background .2s ease, box-shadow .2s ease;
     
-        &:hover {
-            background:  rgba(255, 255, 255, .3);
-            box-shadow: 0 0 .8rem  rgba(255, 255, 255, .3);
-
+        @media ( hover ) {
+            &:hover {
+                background:  rgba(255, 255, 255, .3);
+                box-shadow: 0 0 .8rem  rgba(255, 255, 255, .3);
+    
+            }
         }
     }
 
@@ -1305,6 +1518,249 @@ button {
         }
     }
 
+}
 
+// ======= contact form ======
+
+.contact-form {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    color: $color-dark-theme;
+
+    &__input {
+        width: 100%;
+        max-width: 270px;
+
+        background: $light-bg-input;
+        border: 2px solid $light-border-input;
+        border-radius: 4px;
+
+        color: $color-dark-theme;
+
+        padding: 2% 1.5%;
+
+        transition: border .2s ease;
+
+        &::placeholder {
+            font-size: .87rem;
+            letter-spacing: .01em;
+            color: $color-dark-theme;
+        }
+    
+        @media ( hover ) {
+            &:hover {
+                border: 2px solid $secondary-color;
+            }
+        }
+
+        &:focus {
+            border: 2px solid $secondary-color;
+        }
+
+    }
+
+    &_marg-top {
+        margin-top: 1%;
+    }
 
 }
+
+
+// ======= items ======
+
+
+.items {
+    display: grid;
+    grid-template-columns: repeat( 4, 1fr );
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+
+    // modifiers
+
+    &_marg-top {
+        margin-top: 2.8%;
+    }
+}
+
+.item {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 19% 6%;
+
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 4px 48px #D0D3E8;
+
+
+    // elements
+    &__picture {
+        width: 82px;
+        height: 82px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: $gradient-or;
+        border-radius: 16px;
+
+        margin-bottom: 1rem;
+
+    }
+
+    &__img {
+        width: 40px;
+        height: 40px;
+    
+        object-fit: contain;
+
+    }
+
+    &__title {
+        font-family: $caption-font;
+        font-size: 1.1rem;
+        font-weight: 900;
+        line-height: 1.2;
+        font-style: normal;
+        text-align: center;
+
+    }
+
+}
+
+// ======= meassage-form / form-message ======
+
+.form-message__textarea {
+    resize: none;
+}
+
+.form-message {
+    width: 79%;
+
+    color: $color-dark-theme;
+
+    // modifiers
+    &_marg-top {
+        margin-top: 2rem;
+    }
+
+    // elements
+    &__row {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__input {
+        // 10px = margin: 0 10px; for two input
+        width: calc(50% - 10px);
+    }
+
+
+    &__textarea {
+        width: 100%;        
+        
+        min-height: 114px;
+        margin-bottom: 2rem;
+
+
+    }
+}
+
+.form-message-custom {
+    padding: 24px 12px;
+
+    font-family: $text-font;
+    font-size: .87rem;
+    font-weight: 400;
+    line-height: .9;
+    font-style: normal;
+    letter-spacing: 0em;
+    
+    color: inherit;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+    background: rgba(255,255,255, .1);
+
+    border-radius: 4px;
+
+
+    transition: border .2s ease;
+    
+
+    @media ( hover ) {
+        &:hover {
+            border: 1px solid $secondary-color;
+        }
+    }
+
+    &:focus {
+        border: 1px solid $secondary-color;
+    }
+
+    &::placeholder {
+        color: inherit;
+    }
+}
+
+// ======= revies ======
+
+
+.revies-wrapper {
+    width: 100%;
+    
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 -15px;
+    margin-top: 50px;
+    
+}
+
+.revies {
+    width: 25%;
+    margin: 0 15px;
+    &__title {
+        font-family: $caption-font;
+        font-size: 1.1rem;
+        font-weight: 900;
+        line-height: 1.3;
+        font-style: normal;
+        letter-spacing: 0em;
+        color: $secondary-color;
+        
+        margin-top: 24px;
+        margin-bottom: 4px;
+    }
+}
+
+// ======= previes video ======
+
+
+.video {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+
+
+
+
+

@@ -13,7 +13,6 @@ const prevBtn = document.getElementById('home-prev-btn');
 // drop menu
 const carTypeBtn = document.getElementsByClassName('drop-menu-trigger-JS');
 //
-const carFiltrForm = document.getElementById('car-filter');
 
 for ( let btn of btnListNumbers ) {
     
@@ -62,12 +61,27 @@ for ( let btn of carTypeBtn ) {
 
 }
 
-// sometimes function 
-carFiltrForm.addEventListener('submit', (e)=> {
-    e.preventDefault();
-});
+// ========= video control panel  =========
+
+const playBtns = document.getElementsByClassName('video-play-JS');
+
+for ( let btn of playBtns ) {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const videoId = btn.parentElement.getAttribute('data-video');
+
+        const video = document.getElementById(videoId);        
+
+        
+
+    });
+}
+
+
 
 // ======= functions
+
 function checkForSmallNumber ( num, el  ) {
 
     if ( num < 10 ) {
@@ -118,7 +132,7 @@ function changeNumber ( btn, numberList ) {
 
             let callPhoneLink = document.getElementById(callPhoneLinkId);
             
-            callPhoneLink.setAttribute('href', `tel:${el.getAttribute('data-phone')}"`);
+            callPhoneLink.setAttribute('href', `tel:${el.getAttribute('data-phone')}"`) ;
             
             number.innerHTML = el.textContent;
             
@@ -166,6 +180,5 @@ function dropDownSheet ( btn ) {
     }    
 
 }
-
 
 });

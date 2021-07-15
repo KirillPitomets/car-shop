@@ -24,8 +24,11 @@ $dis-active-color: #5E6162;
 $yt-dark-color: #BC0209;
 $yt-color: #ED1C24;
 // input
-$light-bg-input: #E0E1EB;
-$light-border-input: #C2C2CB;
+$light-bg-input: rgba(0,0,0, .2);
+$light-border-input: rgba(255,255,255, .2);
+// contact-input
+$light-bg-contact-input: rgb(204, 204, 204);
+$light-border-contact-input: rgba(194, 194, 203, .5);
 // =============
 $dark-bg-input: #1A1D1E;
 $dark-border-input: #262728;
