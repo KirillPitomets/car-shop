@@ -62,21 +62,59 @@ for ( let btn of carTypeBtn ) {
 }
 
 // ========= video control panel  =========
+// ======= first code ======
+// const playBtn = document.getElementsByClassName('video-play-JS');
 
-const playBtns = document.getElementsByClassName('video-play-JS');
+// for ( let btn of playBtn ) {
+    
+//     btn.addEventListener('click', function(e) {
+//         e.preventDefault();
 
-for ( let btn of playBtns ) {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
+//         const videoId = btn.parentElement.getAttribute('data-video');
 
-        const videoId = btn.parentElement.getAttribute('data-video');
+//         const video = document.getElementById(videoId);        
+        
+//         console.log(video);
 
-        const video = document.getElementById(videoId);        
+//     });
+// }
+// ======= second code ======
+
+const videoControlPanels = document.getElementsByClassName('video-controls-JS');
+
+for ( let panel of videoControlPanels ) {
+
+    panel.addEventListener('click', function (e) {
+
+        let videoId = panel.getAttribute('data-video');
+        let video = document.getElementById(videoId);
 
         
+        
+        // ======= toggle video ======
+        if ( e.target.classList.contains('video-toggle-JS') ) {
+            switchPlayPause( video, e.target );
+        }
+    
 
     });
+    panel.addEventListener('mouseover', function (e) {
+        let videoId = panel.getAttribute('data-video');
+        let video = document.getElementById(videoId);
+
+         // ======= volume video ======
+         if ( e.target.classList.contains('video-volume-btn-JS') ) {
+        
+            switchVolume( video, e.target );
+        
+        }
+
+    });
+
 }
+
+// check mouseDown 
+
 
 
 
@@ -181,4 +219,74 @@ function dropDownSheet ( btn ) {
 
 }
 
+function switchPlayPause( video, btn ) {
+
+    if ( video.paused ) {
+        video.play();
+        btn.textContent = 'play';
+
+    } else {
+
+        video.pause();
+        btn.textContent = 'pause';
+
+    }
+    
+
+}
+
+function switchVolume (video, btn) {
+
+
+    btn.addEventListener('mousedown', function(event) {
+        // event.stopPropagation();
+        
+        let volumeLine = event.target.classList.contains('video-volume-JS') ? event.target : false;
+
+        let mouseDown = false;
+
+        document.body.onmousedown = function () {
+            mouseDown = true;
+        };
+        document.body.onmouseup = function () {
+            mouseDown = false;
+        };
+        
+        let oldPosX = event.screenX;
+
+        let width = volumeLine.offsetWidth;
+
+        volumeLine.style.width = `${width + 1}px`;
+
+        btn.addEventListener('mousemove', function (e) {
+            if ( mouseDown ) {
+                
+                // width px
+                let newPosX = e.screenX;
+
+                width = volumeLine.offsetWidth;
+                
+                let percentVolume = (width / btn.offsetWidth) * 100; 
+
+                if ( newPosX > oldPosX && percentVolume < 100 ) {
+                    
+                    volumeLine.style.width = `${width + 1}px`;
+                    
+                } else {
+                    volumeLine.style.width = `${width - 1}px`;
+                }
+
+                
+
+                oldPosX = newPosX;
+                
+            }
+        });
+    });
+
+}
+
+
+
+// ======= DOMContentLoaded ======
 });

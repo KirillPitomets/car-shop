@@ -1205,7 +1205,8 @@ button {
             color: $placeholder-light-theme;
         }
 
-        &:focus {
+        &:focus,
+        &:focus ~ .drop-sheet_overflow .drop-sheet  {
             border: 1px solid $secondary-color;
         }
 
@@ -1442,9 +1443,8 @@ button {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 17px;
-
-        margin-top: 21px;
+        gap: 1em;
+        margin-top: 7.2%;
     }
 
     &__picture-wrapper {
@@ -1476,8 +1476,8 @@ button {
 
     &__info-btn {
         width: 100%;
-        margin-top: 20px;
-        margin-bottom: 12px;
+        margin-top: 7%;
+        margin-bottom: 4.2%;
         padding: 5.3%;
 
         border: 2px solid rgba(255, 255, 255, .12);
@@ -1759,6 +1759,30 @@ button {
     max-height: 100%;
 }
 
+.video-controls {
+
+
+    &__btn {
+        border: 1px solid red;
+        
+    }
+
+}
+
+.volume-wrapper {
+    width: 100%;
+    min-height: 20px;
+    border: 2px solid green;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.video-controls__btn_volume {
+    width: 50%;
+    min-height: inherit;
+    background: $active-color;
+                
+}
 
 
 
