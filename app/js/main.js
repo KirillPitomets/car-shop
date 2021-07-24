@@ -7,13 +7,22 @@ const btnListNumbers =  document.getElementsByClassName('phone-JS');
 // == home slider
 const homeNumAllSliders = document.getElementById('home-num-all-slide');
 const homeNumActiveSlide = document.getElementById('home-num-acitve');
-// == btns
+// == home slider btns
 const nextBtn = document.getElementById('home-next-btn');
 const prevBtn = document.getElementById('home-prev-btn');
 // drop menu
 const carTypeBtn = document.getElementsByClassName('drop-menu-trigger-JS');
-//
+// play video btns
+const playVideoBtns = document.getElementsByClassName('play-video-JS');
+// accordions
+const accordions = document.getElementsByClassName('accordion-item-JS');
+// call info btn
+const callInfoBtns = document.getElementsByClassName('call-info-btn-JS');
+// toggle head
+const headToggleBtns = document.getElementsByClassName('head-toggle-JS');
+const header = document.getElementById('header')
 
+// number list
 for ( let btn of btnListNumbers ) {
     
     btn.addEventListener('click', function(e) {
@@ -26,12 +35,30 @@ for ( let btn of btnListNumbers ) {
     
     });
 }
-
 // ========= slider / splider =========
 
 const home = new Splide( '#home', {
     type: 'fade',
     perPage: 1,
+    autoplay: true,
+} ).mount();
+
+new Splide( '#auctions', {
+    type: 'loop',
+    perPage: 4,
+    perMove: 1,
+    gap: '2rem',
+    breakpoints: {
+        955: {
+            perPage: 3,
+        },
+        755: {
+            perPage: 2,
+        },
+        444: {
+            perPage: 1,
+        }
+    }
 } ).mount();
 
 // custom pagination
@@ -61,61 +88,61 @@ for ( let btn of carTypeBtn ) {
 
 }
 
-// ========= video control panel  =========
-// ======= first code ======
-// const playBtn = document.getElementsByClassName('video-play-JS');
+// ======= video ======
 
-// for ( let btn of playBtn ) {
+for (let btn of playVideoBtns ) {
+
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        startVideo(btn, 'btn-play__video_hide');
     
-//     btn.addEventListener('click', function(e) {
-//         e.preventDefault();
-
-//         const videoId = btn.parentElement.getAttribute('data-video');
-
-//         const video = document.getElementById(videoId);        
-        
-//         console.log(video);
-
-//     });
-// }
-// ======= second code ======
-
-const videoControlPanels = document.getElementsByClassName('video-controls-JS');
-
-for ( let panel of videoControlPanels ) {
-
-    panel.addEventListener('click', function (e) {
-
-        let videoId = panel.getAttribute('data-video');
-        let video = document.getElementById(videoId);
-
-        
-        
-        // ======= toggle video ======
-        if ( e.target.classList.contains('video-toggle-JS') ) {
-            switchPlayPause( video, e.target );
-        }
-    
-
-    });
-    panel.addEventListener('mouseover', function (e) {
-        let videoId = panel.getAttribute('data-video');
-        let video = document.getElementById(videoId);
-
-         // ======= volume video ======
-         if ( e.target.classList.contains('video-volume-btn-JS') ) {
-        
-            switchVolume( video, e.target );
-        
-        }
-
     });
 
 }
 
-// check mouseDown 
+// ======= accordions ======
 
+for ( let accordion of accordions ) {
+    accordion.addEventListener('click', function () {
 
+        toggleAccordion( accordion );
+
+    });
+}
+// ======= map settings ======
+
+// optimizing map loading
+
+let mapReady = false;
+
+if ( !mapReady ) {
+    
+    window.addEventListener('scroll', checkMapLoading );
+}
+
+// ======= call info btns ======
+
+for ( let btn of callInfoBtns ) {
+    btn.addEventListener('click', function() {
+    
+        toggleCallInfo(btn, 'phones_active');
+
+    });    
+}
+
+// ======= head toggle ======
+
+for ( let btn of headToggleBtns ) {
+    btn.addEventListener('click', () => {
+        
+        headToggle( btn );
+
+    });
+}
+
+// ======= aos / animate ======
+
+AOS.init();
 
 
 // ======= functions
@@ -161,7 +188,11 @@ function changeNumber ( btn, numberList ) {
         // change number
         
     let numbers = numberList.querySelectorAll('[data-phone]');
-    let number = document.getElementById('active-num');
+
+    const parentWrapper = btn.closest('.phones');
+
+    
+    let number = parentWrapper.querySelector('.active-num-JS');
     
     numbers.forEach(el => {
         el.addEventListener('click', function(e) {
@@ -219,70 +250,200 @@ function dropDownSheet ( btn ) {
 
 }
 
-function switchPlayPause( video, btn ) {
+function startVideo ( btn, className ) {
 
-    if ( video.paused ) {
-        video.play();
-        btn.textContent = 'play';
+    const videoId = btn.getAttribute('data-video');
+    const video = document.getElementById(videoId);
 
-    } else {
+    video.setAttribute('controls', '');
 
-        video.pause();
-        btn.textContent = 'pause';
+    video.play();
+    
+    btn.classList.add(className);
 
-    }
+    popupVideoOpen(video);
     
 
 }
 
-function switchVolume (video, btn) {
+function popupVideoOpen ( video ) {
 
+    const videoParent = video.closest('.video');
+    const closeBtn = videoParent.querySelector('.close-btn');
+    
+    lockScroll( true );
 
-    btn.addEventListener('mousedown', function(event) {
-        // event.stopPropagation();
-        
-        let volumeLine = event.target.classList.contains('video-volume-JS') ? event.target : false;
+    closeBtn.classList.add('close-btn_active');
 
-        let mouseDown = false;
+    videoParent.classList.add('video_active');
 
-        document.body.onmousedown = function () {
-            mouseDown = true;
-        };
-        document.body.onmouseup = function () {
-            mouseDown = false;
-        };
-        
-        let oldPosX = event.screenX;
+    // adding function on click
 
-        let width = volumeLine.offsetWidth;
+    popupVideoCloseOpen( video, 'btn-play__video_hide' );
 
-        volumeLine.style.width = `${width + 1}px`;
+}
 
-        btn.addEventListener('mousemove', function (e) {
-            if ( mouseDown ) {
-                
-                // width px
-                let newPosX = e.screenX;
+function popupVideoCloseOpen ( video, playBtnClassName ) {
 
-                width = volumeLine.offsetWidth;
-                
-                let percentVolume = (width / btn.offsetWidth) * 100; 
+    const videoParent = video.closest('.video');
+    const closeBtn = videoParent.querySelectorAll('.video-popup-close-JS');
 
-                if ( newPosX > oldPosX && percentVolume < 100 ) {
-                    
-                    volumeLine.style.width = `${width + 1}px`;
-                    
-                } else {
-                    volumeLine.style.width = `${width - 1}px`;
-                }
+    const playBtnId = videoParent.getAttribute('data-play-btn');
+    const playBtn = document.getElementById( playBtnId );
 
-                
+    closeBtn.forEach(el => {
+        el.addEventListener('click', () => {
+            video.pause();
+            lockScroll( false );
+            videoParent.classList.remove('video_active');
+            el.classList.remove('close-btn_active');
+            playBtn.classList.remove(playBtnClassName);
 
-                oldPosX = newPosX;
-                
-            }
         });
     });
+
+
+
+}
+
+function lockScroll ( lock ) {
+    // checking for mobile device
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+
+        return;
+    
+    } else {
+        const body = document.body;
+        const lockElements = document.getElementsByClassName('lock-JS');
+        const main = document.getElementById('main');
+        const lockPaddingValue = window.innerWidth - main.offsetWidth + 'px';
+        // lock = true or false
+        let lockBody = lock ;
+    
+        if ( lockBody ) {
+            body.style.overflow = 'hidden';
+            body.style.paddingRight = lockPaddingValue;
+
+            for ( let el of lockElements ) {
+                el.style.paddingRight = lockPaddingValue;
+            }
+
+        } else {
+            body.style.overflow = 'unset';
+            body.style.paddingRight = 0;
+            
+            for ( let el of lockElements ) {
+                el.style.removeProperty('padding-right');
+            }
+        }
+    }
+}
+
+function toggleAccordion ( accordion ) {
+
+    const accordionTitle = accordion.querySelector('.accordion__title-JS');
+    const accordionBtn = accordion.querySelector('.accordion__btn-JS');
+    const accordionMain = accordion.querySelector('.accordion__main-JS');
+
+    accordion.classList.toggle('accordion__item_active');
+    accordionTitle.classList.toggle('accordion__title_active');
+    accordionBtn.classList.toggle('accordion__btn_active');
+    accordionMain.classList.toggle('accordion__main_active');
+
+
+}
+
+function checkMapLoading () {
+    if ( window.scrollY > (document.documentElement.scrollHeight / 2) ) {
+        mapReady = true;
+        
+        var map = L.map('map', {
+            center: [50.46816136226533, 30.60708497124595],
+            zoom: 13
+        });
+
+        // ======= marker ======
+        var customIcon = L.icon({
+            iconUrl: './images/map/marker.png',
+
+            iconSize: [62, 79 ], // size of the icon
+            iconAnchor: [31, 39.5], // point of the icon which will correspond to marker's location
+            
+        });
+
+        // ======= map theme ======
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+            foo: 'bar',
+            
+            maxZoom: 100,
+
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+
+        }).addTo(map);
+
+        L.marker([50.46885670676126, 30.58918099065033], {icon: customIcon}).addTo(map);
+
+    }
+    // remove event 
+    if ( mapReady  ) {
+        window.removeEventListener('scroll', checkMapLoading );
+    }
+}
+
+function toggleCallInfo( btn, blockClassName ) {
+
+    const blockId = btn.getAttribute('data-phones');
+    const block = document.getElementById(blockId);
+
+    block.classList.toggle(blockClassName);
+
+}
+
+function headToggle ( btn ) {
+
+    const headerId = btn.getAttribute('data-head');
+    const headerElment =  document.getElementById(headerId);
+    
+
+    if ( btn.classList.contains('head-toggle_active') ) {
+        animationToggleBtnSecondStep( btn );
+        lockScroll(false);
+
+    } else {
+        animationToggleBtnFirstStep( btn );
+        lockScroll(true);
+    }
+
+    headerElment.classList.toggle('header-main_active');
+    header.classList.toggle('header_active');
+
+}
+
+function animationToggleBtnFirstStep ( toggleBtn  ) {
+
+    const lines = toggleBtn.querySelector('.head-toggle__line');
+
+    lines.classList.add('head-toggle__line_translate');
+
+    setTimeout( () => {
+
+        toggleBtn.classList.add('head-toggle_active');
+
+    }, 200);
+
+}
+
+function animationToggleBtnSecondStep ( toggleBtn) {
+    const lines = toggleBtn.querySelector('.head-toggle__line');
+
+    toggleBtn.classList.remove('head-toggle_active');
+    
+    setTimeout( () => {
+
+        lines.classList.remove('head-toggle__line_translate');
+
+
+    }, 200);
 
 }
 

@@ -16,6 +16,9 @@ $active-color: #FD4B0D;
 // placeholder
 $placeholder-dark-theme: #fff;
 $placeholder-light-theme: #8A8A99;
+// map text
+$small-text: #8A8A99;
+
 // bg & body
 $bg-color: #191E20;
 $body-bg-color: #fff;
@@ -45,13 +48,56 @@ $card-color: #474FA0;
 $facebook-color: #3B5998;
 $telegram-color: #0798E3;
 $viber-color: #474FA0;
+// items box shadow 
+$item-box-shadown-color: #D0D3E8;
+// accordoin
+$accordion-arrow: #EF425A;
+$accordion-arrow-active: #fff;
+
+$accordion-bg: #FFFFFF;
+$accordion-bg-active: #F0F0F5;
+
+$accordion-bg-btn: #F0F0F5;
+// ======= footer colors ======
+$footer-item-title: rgba(251, 251, 251, .3);
+$footer-line: rgba(162, 170, 173, .23);
 // gradients
 $gradient-inst: radial-gradient(110.28% 110.28% at 20.5% 87.39%, #FAE100 0%, #FADC04 5.44%, #FBCE0E 11.67%, #FCB720 18.29%, #FE9838 25.14%, #FF7950 30.54%, #FF1C74 49.22%, #6C1CD1 100%);
 // =============
-$gradient-pur: linear-gradient(92.15deg, #474FA0 0.76%, #888FDA 120.91%);
+$gradient-pur: linear-gradient(92.15deg, #474FA0 0.36%, #888FDA 120.91%);
+// =============
+$gradient-viber-contact: linear-gradient(89.58deg, rgba(71, 79, 160, .9) 50.36%, rgba(123, 134, 237, .9) 108.09%);
+// =============
+$bg-contact-or: rgba(254, 76, 13, .8);
+
 // =============
 $gradient-or: linear-gradient(92.15deg, #FD4B0D 0.76%, #FF855A 120.91%);
 // =============
-$gradient-blue: linear-gradient(179.31deg, rgba(5, 11, 65, 0.9) -39.12%, rgba(73, 81, 161, 0.9) 154.05%);;
+$gradient-blue: linear-gradient(179.31deg, rgba(5, 11, 65, 0.9) -39.12%, rgba(73, 81, 161, 0.9) 154.05%);
 // line 
 $line-color: #E0E0EE;
+
+// ======= media display size  ======
+
+// .xs, .tiny   - /*очень маленький*/
+// .s,  .small  - /*маленький*/
+// .md, .medium - /*средний */
+// .lg, .large, .big - /*большой */
+// .xxl, .xl, .extra-large - /*очень большой*/
+
+// very big
+$xxl: '1771px';
+$xl: '1615px';
+// big
+$lg: '1471px';
+$large: '1401px';
+$big: '1332px';
+// medium
+$md: '1261px';
+$medium: '1161px';
+// small
+$small: '955px';
+$s: '851px';
+// very small
+$xs: '755px';
+$tiny: '640px';

@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- links -->
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <!-- splide -->
     <link rel="stylesheet" href="./libs/splide-2.4.21/dist/css/splide-core.min.css">
     <!-- my style -->
@@ -30,233 +34,286 @@
 </head>
 <body>
 
-<header class="header">
-    <div class="panel panel_padding">
-        <div class="panel__wrapper container">
-                    
-        <nav>
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        о нас
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        отзывы
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        акции
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        доставка/растаможка
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        кредит
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        сотрудничество
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        страхование
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        новости
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#" class="nav__link uppercase">
-                        вакансии
-                    </a>
-                </li>
-            </ul>
-        </nav>
+<header id="header" class="header">
 
-        <ul class="lan">
-            <li class="lan__item">
-                <button class="btn btn_lan uppercase">
-                    rus
-                </button>
-            </li>
-            <li class="lan__item">
-                <button class="btn btn_lan uppercase dis-active">
-                    ukr
-                </button>
-            </li>
-        </ul>
-        
-    </div>
-
-    </div>
-
-    <div class="container">
-        <div class="header__inner header__inner_padding-bottom header__inner_underline">
-            
-        <a href="./index.html">
-            <img class="logo" src="./images/logo.png" alt="Dealer Cars" title="Dealer Cars">
-        </a>
-    
-        <form action="#" class="search-site search-site_marg">
-            <input class="search-site__input" type="search" placeholder="Поиск по сайту">
-
-            <button class="search-site__btn" type="submit">
-                <svg class="svg svg_search" viewBox="0 0 18 18">
-                    <use href="./images/sprite.svg#search" />
-                </svg>
-            </button>
-
-        </form>
-
-        <a href="#"  class="yt-btn yt-btn_marg">
-            <span class="yt-btn__text">
-                dealer 
-                <span class="yt-btn__span">
-                    шоу 
-                </span>
-            </span>
-            <div class="picture">
-                <svg class="svg svg_social svg_yt" viewBox="0 0 26 18">
-                    <use href="./images/sprite.svg#youtube"/>
-                </svg>
-            </div>
-        </a>
-
-        <div class="social-wrapper social-wrapper_marg">
-
-            <a href="#" class="social__link social__link_marg social__link_insta">
-                <svg class="svg svg_social" viewBox="0 0 21 20">
-                    <use href="./images/sprite.svg#instagram"/>
-                </svg>
-            </a>
-
-            <a href="#" class="social__link social__link_marg social__link_facebook">
-                <svg class="svg svg_social" viewBox="0 0 11 23">
-                    <use href="./images/sprite.svg#facebook"/>
-                </svg>
-            </a>
-
-            <a href="#" class="social__link social__link_marg social__link_telegram">
-                <svg class="svg svg_social" viewBox="0 0 20 18">
-                    <use href="./images/sprite.svg#telegram"/>
-                </svg>
-            </a>
-
-            <a href="#" class="social__link social__link_marg social__link_viber">
-                <svg class="svg svg_social" viewBox="0 0 22 23">
-                    <use href="./images/sprite.svg#viber"/>
-                </svg>
-            </a>
-
-        </div>
-
-        <div class="phones phones_marg">
-
-            <div class="phones__wrapper phones__wrapper_marg"> 
-
-                <p id="active-num" class="phone__numbers phone__numbers_marg">
-                    +38 (093) 616-44-41
-                </p>
-                <!-- numbers list -->
-                <div class="phone__numbers_overflow">
-                    <ul id="numbers-list" data-call-phone="call-phone" class="phone__numbers phone__numbers-list ">
-                        <!-- phone__numbers-list_active -->
-
-                        <li class="phone__number phone__number_margin"
-                        data-phone="+380-93-616-44-41">
-                            +38 (093) 616-44-41
+    <div id="header-main" class="header-main lock-JS">
+        <!-- bottom for mobile -->
+        <div class="panel panel_padding header-main__item header-main__item_bottom">
+            <div class="panel__wrapper container">
+                            
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                о нас
+                            </a>
                         </li>
-
-                        <li class="phone__number phone__number_margin"
-                        data-phone="+380-99-654-22-16">
-                            +38 (099) 654-22-16
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                отзывы
+                            </a>
                         </li>
-
-                        <li class="phone__number phone__number_margin"
-                        data-phone="+380-92-222-56-13">
-                            +38 (092) 222-56-13
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                акции
+                            </a>
                         </li>
-                        
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                доставка/растаможка
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                кредит
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                сотрудничество
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                страхование
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                новости
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link uppercase">
+                                вакансии
+                            </a>
+                        </li>
                     </ul>
-                </div>
-                <!-- /.numbers list -->
+                </nav>
+    
+                <ul class="lan">
+                    <li class="lan__item">
+                        <button class="btn btn_lan uppercase">
+                            rus
+                        </button>
+                    </li>
+                    <li class="lan__item">
+                        <button class="btn btn_lan uppercase dis-active">
+                            ukr
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- top for mobile -->
+        <div class="header__inner header__inner_padding-bottom header__inner_underline container header-main__item header-main__item_top">
+            
+            <a class="header__logo header-main__logo" href="./index.html">
+                <img class="logo" src="./images/logo.png" alt="Dealer Cars" title="Dealer Cars">
+            </a>
 
-                <button data-list="numbers-list" class="btn-arrow btn-arrow_phone phone-JS"></button> <!-- btn-arrow_rotate-180 -->    
+            <!-- call menu -->
+            <div id="phone-block-mobile" class="phones phones_mobile phones_marg">
+
+                <div class="phones__inner">
+                    <div class="phones__wrapper phones__wrapper_marg"> 
+
+                        <!-- active number -->
+                        <p data-list="numbers-list-mobile" class="phone__numbers phone__numbers_marg active-num-JS phone-JS">
+                            +38 (093) 616-44-41
+                        </p>
+
+                        <!-- numbers list -->
+                        <div class="phone__numbers_overflow">
+                            <ul id="numbers-list-mobile" data-call-phone="call-phone-mobile" class="phone__numbers phone__numbers-list ">
+                                <!-- phone__numbers-list_active -->
+
+                                <li class="phone__number phone__number_margin"
+                                data-phone="+380-93-616-44-41">
+                                    +38 (093) 616-44-41
+                                </li>
+
+                                <li class="phone__number phone__number_margin"
+                                data-phone="+380-99-654-22-16">
+                                    +38 (099) 654-22-16
+                                </li>
+
+                                <li class="phone__number phone__number_margin"
+                                data-phone="+380-92-222-56-13">
+                                    +38 (092) 222-56-13
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <!-- /.numbers list -->
+
+                        <!-- <button data-list="numbers-list-mobile" class="btn-arrow btn-arrow_phone phone-JS"></button>  -->
+                        <!-- btn-arrow_rotate-180 -->    
+
+                    </div>
+
+                </div>
 
             </div>
-
-            <a id="call-phone" href="tel:+380-93-616-44-41" class="call call_marg">
-                <svg class="svg svg_phone" viewBox="0 0 13 13">
+            <!-- /.call menu -->
+    
+            <form action="#" class="search-site search-site_marg">
+                <input class="search-site__input" type="search" placeholder="Поиск по сайту">
+    
+                <button class="search-site__btn" type="submit">
+                    <svg class="svg svg_search" viewBox="0 0 18 18">
+                        <use href="./images/sprite.svg#search" />
+                    </svg>
+                </button>
+    
+            </form>
+    
+            <a href="#"  class="yt-btn yt-btn_marg">
+                <span class="yt-btn__text">
+                    dealer 
+                    <span class="yt-btn__span">
+                        шоу 
+                    </span>
+                </span>
+                <div class="picture">
+                    <svg class="svg svg_social svg_yt" viewBox="0 0 26 18">
+                        <use href="./images/sprite.svg#youtube"/>
+                    </svg>
+                </div>
+            </a>
+    
+            <div class="social-wrapper social-wrapper_marg">
+    
+                <a href="#" class="social__link social__link_marg social__link_insta">
+                    <svg class="svg svg_social" viewBox="0 0 21 20">
+                        <use href="./images/sprite.svg#instagram"/>
+                    </svg>
+                </a>
+    
+                <a href="#" class="social__link social__link_marg social__link_facebook">
+                    <svg class="svg svg_social" viewBox="0 0 11 23">
+                        <use href="./images/sprite.svg#facebook"/>
+                    </svg>
+                </a>
+    
+                <a href="#" class="social__link social__link_marg social__link_telegram">
+                    <svg class="svg svg_social" viewBox="0 0 20 18">
+                        <use href="./images/sprite.svg#telegram"/>
+                    </svg>
+                </a>
+    
+                <a href="#" class="social__link social__link_marg social__link_viber">
+                    <svg class="svg svg_social" viewBox="0 0 22 23">
+                        <use href="./images/sprite.svg#viber"/>
+                    </svg>
+                </a>
+    
+            </div>
+    
+            <button data-phones="phone-block" class="call-info-btn call-info-btn_d-n call-info-btn-JS">
+                <svg class="svg svg_call-info" viewBox="0 0 13 13">
                     <use href="./images/sprite.svg#phone" />
                 </svg>
-                <span class="call__text call__text_marg">Заказать звонок</span>
-            </a>
-
+            </button>
+    
+            <div id="phone-block" class="phones phones_marg">
+    
+                <div class="phones__inner">
+                    <div class="phones__wrapper phones__wrapper_marg"> 
+    
+                        <p class="phone__numbers phone__numbers_marg active-num-JS">
+                            +38 (093) 616-44-41
+                        </p>
+                        <!-- numbers list -->
+                        <div class="phone__numbers_overflow">
+                            <ul id="numbers-list" data-call-phone="call-phone" class="phone__numbers phone__numbers-list ">
+                                <!-- phone__numbers-list_active -->
+        
+                                <li class="phone__number phone__number_margin"
+                                data-phone="+380-93-616-44-41">
+                                    +38 (093) 616-44-41
+                                </li>
+        
+                                <li class="phone__number phone__number_margin"
+                                data-phone="+380-99-654-22-16">
+                                    +38 (099) 654-22-16
+                                </li>
+        
+                                <li class="phone__number phone__number_margin"
+                                data-phone="+380-92-222-56-13">
+                                    +38 (092) 222-56-13
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <!-- /.numbers list -->
+        
+                        <button data-list="numbers-list" class="btn-arrow btn-arrow_phone phone-JS"></button> <!-- btn-arrow_rotate-180 -->    
+        
+                    </div>
+        
+                    <a id="call-phone" href="tel:+380-93-616-44-41" class="call call_marg">
+                        <svg class="svg svg_phone" viewBox="0 0 13 13">
+                            <use href="./images/sprite.svg#phone" />
+                        </svg>
+                        <span class="call__text call__text_marg">Заказать звонок</span>
+                    </a>
+                </div>
+    
+            </div>
+    
         </div>
-
-        </div>
-
-        <div class="header__inner ">
+        <!-- center for mobile -->
+        <div class="header__inner container header-main__item header-main__item_center">
             <ul class="nav__list w-100">
                 <!-- big-btn -->
                 <li class="nav__item">
                     <a href="#" class="nav__btn-big">
-
+    
                         <div class="icon">
                             <svg class="svg svg_btn-big" viewBox="0 0 28 28">
                                 <use href="./images/sprite.svg#tire"/>
                             </svg>
                         </div>
-
+    
                         <p class="nav__btn-big__text uppercase">
                             каталог
                         </p>
-
+    
                     </a>
                 </li>
-
-                <li class="nav__item nav__item_marg-zero">
+    
+                <li class="nav__item">
                     <a href="#" class="nav__link nav__link_font uppercase">
                         автомобили
                     </a>
                 </li>
-                <li class="nav__item nav__item_marg-zero">
+                <li class="nav__item">
                     <a href="#" class="nav__link nav__link_font uppercase">
                         мото техника
                     </a>
                 </li>
-                <li class="nav__item nav__item_marg-zero">
+                <li class="nav__item">
                     <a href="#" class="nav__link nav__link_font uppercase">
                         электроника
                     </a>
                 </li>
-                <li class="nav__item nav__item_marg-zero">
+                <li class="nav__item">
                     <a href="#" class="nav__link nav__link_font uppercase">
                         под заказ
                     </a>
                 </li>
-                <li class="nav__item nav__item_marg-zero">
+                <li class="nav__item">
                     <a href="#" class="nav__link nav__link_font uppercase">
                         в украине
                     </a>    
                 </li>
-                <li class="nav__item nav__item_marg-zero">
+                <li class="nav__item">
                     <a href="#" class="nav__link nav__link_font uppercase">
                         услуги
                     </a>
                 </li>
-                <li class="nav__item nav__item_marg-zero">
+                <li class="nav__item">
                     <a href="#" class="nav__link nav__link_font uppercase">
                         контакты
                     </a>
@@ -266,15 +323,42 @@
         </div>
 
     </div>
-    
+
+    <!-- mobile header -->
+    <div class="header-mobile lock-JS">
+
+        <div class="header-mobile__wrapper">
+            <!-- head-toggle_active -->
+            <button data-head="header-main" class="head-toggle head-toggle-JS">
+                <span class="head-toggle__line"></span>
+            </button>
+
+            <img class="header-mobile__logo" src="./images/logo.png" alt="Dealer Cars" title="Dealer Cars">
+            
+            <!-- <a class="header__logo" href="./index.html">
+            </a> -->
+
+            <!-- phones -->
+            <!-- ====== -->
+
+            <a id="call-phone-mobile" href="tel:+380-92-222-56-13" class="call-info-btn call-info-btn_animation">
+                <svg class="svg svg_call-info" viewBox="0 0 13 13">
+                    <use href="./images/sprite.svg#phone" />
+                </svg>
+            </a>
+            
+        </div>
+
+    </div>
 
 </header>
 
-<main>
+<!-- #main for js -->
+<main id="main" class="main">
     <section class="home_marg-top">
         <div class="container">
 
-            <div id="home" class="splide">
+            <div id="home" class="splide" data-aos="fade">
                 <!-- arrows -->
 
                 <div class="splide__arrows slide__arrows">
@@ -305,7 +389,8 @@
 
                 </div>
                 <!-- /.arrows -->
-                <div class="splide__track">
+                <div class="splide__track slide__track">
+                    
                     <ul class="splide__list">
                         <!-- 1 -->
                         <li class="splide__slide">
@@ -423,9 +508,10 @@
         </div>
     </section>
 
-    <section class="section_marg-top-medium">
+    <section class="section-marg_top-md">
         <div class="container">
-            <div class="section-title">
+
+            <div class="section-title" data-aos="fade">
                 <h2 class="section-title__title">
                     подобрать авто  <br>
                     <span class="section-title__subtitle">
@@ -434,7 +520,7 @@
                 </h2>
             </div>
 
-            <div class="section-content section-content_contact-form">
+            <div class="section-content section-content_contact-form" data-aos="fade-up">
 
                 <!-- === form === -->
                 <form id="car-filter" action="#" method="POST" class="big-form big-form_marg-top section-content__item">
@@ -456,7 +542,7 @@
                                             data-sheet="car-type-sheet" data-car-input="car-type">
                                         <span class="buttom-content-JS">Автомобиль</span>
 
-                                        <div class="btn-arrow arrow-JS"></div>
+                                        <span class="btn-arrow arrow-JS"></span>
 
                                     </button>
                                     <!-- drop menu -->
@@ -485,7 +571,7 @@
                                             data-sheet="car-brand-sheet" data-car-input="car-brand">
                                         <span class="buttom-content-JS">Все</span>
 
-                                        <div class="btn-arrow arrow-JS"></div>
+                                        <span class="btn-arrow arrow-JS"></span>
 
                                     </button>
                                     <!-- drop menu -->
@@ -514,7 +600,7 @@
                                             data-sheet="car-model-sheet" data-car-input="car-model">
                                         <span class="buttom-content-JS">все</span>
 
-                                        <div class="btn-arrow arrow-JS"></div>
+                                        <span class="btn-arrow arrow-JS"></span>
 
                                     </button>
                                     <!-- drop menu -->
@@ -550,7 +636,7 @@
                                                 data-sheet="car-year-of-issue-min" data-car-input="year-of-issue-min" >
                                             <span class="buttom-content-JS">От</span>
 
-                                            <div class="btn-arrow arrow-JS"></div>
+                                            <span class="btn-arrow arrow-JS"></span>
 
                                         </button>
                                         <!-- drop menu -->
@@ -576,7 +662,7 @@
                                                 data-sheet="car-year-of-issue-max" data-car-input="year-of-issue-max" >
                                             <span class="buttom-content-JS">До</span>
         
-                                            <div class="btn-arrow arrow-JS"></div>
+                                            <span class="btn-arrow arrow-JS"></span>
         
                                         </button>
                                         <!-- drop menu -->
@@ -609,7 +695,7 @@
                                                 data-sheet="car-price-sheet-min" data-car-input="car-price-min" >
                                             <span class="buttom-content-JS">От</span>
 
-                                            <div class="btn-arrow arrow-JS"></div>
+                                            <span class="btn-arrow arrow-JS"></span>
 
                                         </button>
                                         <!-- drop menu -->
@@ -635,7 +721,7 @@
                                                 data-sheet="car-price-sheet-max" data-car-input="car-price-max" >
                                             <span class="buttom-content-JS">До</span>
         
-                                            <div class="btn-arrow arrow-JS"></div>
+                                            <span class="btn-arrow arrow-JS"></span>
         
                                         </button>
                                         <!-- drop menu -->
@@ -740,10 +826,10 @@
         </div>
     </section>
 
-    <section class="section_marg-top-medium">
+    <section class="section-marg_top-md">
         <div class="container">
 
-            <div class="section-title">
+            <div class="section-title" data-aos="fade">
                 <h2 class="section-title__title section-title__title_line">
                     топовые автомобили
                 </h2>
@@ -758,7 +844,7 @@
             <div class="shop shop_marg-top">
 
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/01.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -856,7 +942,7 @@
                     </div>
                 </div>
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/02.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -954,7 +1040,7 @@
                     </div>
                 </div>
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/03.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -1052,7 +1138,7 @@
                     </div>
                 </div>
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/04.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -1150,7 +1236,7 @@
                     </div>
                 </div>
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/04.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -1248,7 +1334,7 @@
                     </div>
                 </div>
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/03.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -1346,7 +1432,7 @@
                     </div>
                 </div>
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/01.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -1444,7 +1530,7 @@
                     </div>
                 </div>
                 <!-- ===== card ===== -->
-                <div class="shop-card shop-card_marg-bottom">
+                <div class="shop-card shop-card_marg-bottom" data-aos="fade-up">
                     <div class="shop-card__wrapper">
                         <div class="bg-img shop-card__img">
                             <img class="bg-img__img bg-img__img_shop-card" src="./images/shop-card/02.jpg" alt="Toyota camry" title="Toyota Camry">
@@ -1544,23 +1630,23 @@
 
             </div>
 
-            <button class="btn btn_marg-top btn_w-100 btn_gradient-or">
+            <a href="#" class="btn btn_marg-top btn_w-100 btn_gradient-or" data-aos="fade">
                 перейти в каталог
-            </button>
+            </a>
 
         </div>
     </section>
 
-    <section class="section-contact section_marg-top-medium">
+    <section class="section-contact section-marg_top-md" data-aos="fade-up">
         <div class="container container_pos-r">
 
             <img class="section-bg-img section-bg-img_contact" src="./images/contact-form/01.jpg" alt="background">
             
-            <div class="section-contact__wrapper ">
+            <div class="section-contact__wrapper">
                 
                 
                 <div class="section-title section-title_center">
-                    <h2 class="section-title__title section-title__title_small">
+                    <h2 class="section-title__title section-title__title_md">
                         Наши эксперты сделают для вас индивидуальную подборку абсолютно бесплатно
                     </h2>
                     <div class="section-title__text">
@@ -1578,7 +1664,7 @@
 
                     <input type="text" class="contact-form__input" placeholder="Введите ваш номер телефона">
 
-                    <button class="btn btn_contact btn_gradient-or uppercase" type="submit">
+                    <button class="btn btn_gradient-or uppercase" type="submit">
                         получить консультацию
                     </button>
 
@@ -1589,7 +1675,7 @@
         </div>
     </section>
 
-    <section class="section_marg-top-medium">
+    <section class="section-marg_top-md">
         <div class="container">
 
             <h2 class="section-title__title section-title__title_center uppercase">
@@ -1597,9 +1683,9 @@
             </h2>
             
 
-            <div class="items items_marg-top">
+            <div class="items items_marg">
                 
-                <div class="item">
+                <div class="item" data-aos="zoom-in-right">
 
                     <div class="item__picture">
                         <img class="item__img" src="./images/items/01.png" alt="wallet" title="wallet">
@@ -1613,7 +1699,7 @@
                 </div>
                 
                 
-                <div class="item">
+                <div class="item" data-aos="zoom-in">
 
                     <div class="item__picture">
                         <img class="item__img" src="./images/items/02.png" alt="wallet" title="wallet">
@@ -1627,7 +1713,7 @@
                 </div>
                 
                 
-                <div class="item">
+                <div class="item" data-aos="zoom-in">
 
                     <div class="item__picture">
                         <img class="item__img" src="./images/items/03.png" alt="wallet" title="wallet">
@@ -1641,7 +1727,7 @@
                 </div>
                 
                 
-                <div class="item">
+                <div class="item" data-aos="zoom-in-left">
 
                     <div class="item__picture">
                         <img class="item__img" src="./images/items/04.png" alt="wallet" title="wallet">
@@ -1655,7 +1741,7 @@
                 </div>
                 
                 
-                <div class="item">
+                <div class="item" data-aos="zoom-in-right">
 
                     <div class="item__picture">
                         <img class="item__img" src="./images/items/05.png" alt="wallet" title="wallet">
@@ -1669,7 +1755,7 @@
                 </div>
                 
                 
-                <div class="item">
+                <div class="item" data-aos="zoom-in">
 
                     <div class="item__picture">
                         <img class="item__img" src="./images/items/06.png" alt="wallet" title="wallet">
@@ -1683,7 +1769,7 @@
                 </div>
                 
                 
-                <div class="item">
+                <div class="item" data-aos="zoom-in">
 
                     <div class="item__picture">
 
@@ -1698,8 +1784,8 @@
 
                 </div>
                 
-                
-                <div class="item">
+
+                <div class="item" data-aos="zoom-in-left" >
 
                     <div class="item__picture">
                         <img class="item__img" src="./images/items/08.png" alt="wallet" title="wallet">
@@ -1711,26 +1797,22 @@
 
 
                 </div>
-                
- 
 
             </div>
 
-            
         </div>
     </section>
 
-    <section class="section_marg-top-big">
+    <section data-aos="fade">
         <div class="container">
 
             <div class="section-content section-content_message-form">
 
                 <img class="section-content__bg-img" src="./images/message-form/bg.png" alt="background">
 
-
                 <div class="section-content__wrapper">
 
-                    <div class="section-content__item_55 section-content__item_message-form">
+                    <div class="section-content__item_55 section-content__item_message-form" data-aos="slide-right">
 
                         <div class="section-title"> 
                             <h2 class="section-title__title section-title__title_light-color ">   
@@ -1759,9 +1841,11 @@
                         
                     </div>
     
-                    <div class="section-content__item_45">
+                    <div class="section-content__item_img" data-aos="fade-down">
                     
-                        <img class="section-content__img" src="./images/message-form/man.png" alt="Man" title="Man">
+                        <div class="section-content__img-wrapper">
+                            <img class="section-content__img" src="./images/message-form/man.png" alt="Man" title="Man">
+                        </div>
                         
                     </div>
                     
@@ -1776,9 +1860,9 @@
     
     </section>
 
-    <section class="section_marg-top-medium">
+    <section class="section-marg_top-md">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2 class="section-title__title section-title__title_line">
                     отзыв клиентов
                 </h2>
@@ -1791,187 +1875,1242 @@
             </div>
     
 
-            <div class="revies-wrapper">
-                
-                <div class="revies">
+            <div class="list list_marg">
 
+                <div class="list__item" data-aos="flip-down">
 
-                    <div class="video">
-                        <video id="video-1" class="video__video video-JS" preload="none" poster="./images/revies/01.png">
-                            <source src="./video/01.mp4" type="video/mp4" />
-                        </video>
+                    <div class="list__placeholder">
 
-                        <div data-video="video-1" class="video-controls video-controls-JS">
-                            <button class="video-controls__btn video-toggle-JS">
-                                play
-                            </button>
-                           
-                            <button class="video-controls__btn video-nextSpeed-JS">
-                                >>
-                            </button>
-                            <button class="video-controls__btn video-prevSpeed-JS">
-                                <<
-                            </button>
+                        <img class="list__poster" src="./images/revies/01.png" alt="man">
 
-                            <button class="volume-wrapper video-volume-btn-JS">
-                                <div class="video-controls__btn video-controls__btn_volume video-volume-JS"
-                                ></div>
-                            </button>
+                        <button id="play-video-1" data-video="video-1" class="btn-play__video  play-video-JS">
+                            <span class="arrow-play"></span>
+                        </button>
 
+                        <div data-play-btn="play-video-1" class="video">
+                            <div class="video__wrapper">
+                                <div class="close-btn video-popup-close-JS"></div>
+                                <video id="video-1" class="video__video video-JS" 
+                                preload="none">
+                                <source src="./video/01.mp4" type="video/mp4" />
+                                </video>
+
+                            </div>
                         </div> 
-                        
-                        
+
                     </div>
 
-                    <h3 class="revies__title">
+                    <h3 class="list__title">
                         Константин Пирогов
                     </h3>
 
-                    <p class="revies__text">
+                    <p class="list__text">
                         довольный клиент
                     </p>
 
                 </div>
-                
-                
-                <div class="revies">
+             
 
+                <div class="list__item" data-aos="flip-up">
 
-                    <div class="video">
-                        <video id="video-2" class="video__video video-JS" preload="none" poster="./images/revies/01.png">
-                            <source src="./video/01.mp4" type="video/mp4" />
-                        </video>
+                    <div class="list__placeholder">
 
-                        <div data-video="video-2" class="video-controls video-controls-JS">
-                            <button class="video-controls__btn video-toggle-JS">
-                                play
-                            </button>
-                           
-                            <button class="video-controls__btn video-nextSpeed-JS">
-                                >>
-                            </button>
-                            <button class="video-controls__btn video-prevSpeed-JS">
-                                <<
-                            </button>
+                        <img class="list__poster" src="./images/revies/02.png" alt="man">
 
-                            <button class="volume-wrapper video-volume-btn-JS">
-                                <div class="video-controls__btn video-controls__btn_volume video-volume-JS"
-                                ></div>
-                            </button>
+                        <button id="play-video-2" data-video="video-2" class="btn-play__video  play-video-JS">
+                            <span class="arrow-play"></span>
+                        </button>
 
+                        <div data-play-btn="play-video-2" class="video">
+                            <div class="video__wrapper">
+                                <div class="close-btn video-popup-close-JS"></div>
+                                <video id="video-2" class="video__video video-JS" 
+                                preload="none">
+                                <source src="./video/02.mp4" type="video/mp4" />
+                                </video>
+
+                            </div>
                         </div> 
-                        
-                        
+
                     </div>
 
-                    <h3 class="revies__title">
+                    <h3 class="list__title">
                         Константин Пирогов
                     </h3>
 
-                    <p class="revies__text">
+                    <p class="list__text">
                         довольный клиент
                     </p>
 
                 </div>
-                
-                
-                
-                <div class="revies">
+             
 
-                    <div class="bg-img">
-                        <img src="./images/revies/01.png" alt="Review photo" title="revies" class="bg-img__img">
-                    </div>      
+                <div class="list__item" data-aos="flip-down">
 
+                    <div class="list__placeholder">
 
-                    
+                        <img class="list__poster" src="./images/revies/01.png" alt="man">
 
-                    <h3 class="revies__title">
+                        <button id="play-video-3" data-video="video-3" class="btn-play__video  play-video-JS">
+                            <span class="arrow-play"></span>
+                        </button>
+
+                        <div data-play-btn="play-video-3" class="video">
+                            <div class="video__wrapper">
+                                <div class="close-btn video-popup-close-JS"></div>
+                                <video id="video-3" class="video__video video-JS" 
+                                preload="none">
+                                <source src="./video/01.mp4" type="video/mp4" />
+                                </video>
+
+                            </div>
+                        </div> 
+
+                    </div>
+
+                    <h3 class="list__title">
                         Константин Пирогов
                     </h3>
 
-                    <p class="revies__text">
+                    <p class="list__text">
                         довольный клиент
                     </p>
 
                 </div>
-                
-                
-                <div class="revies">
+             
 
-                    <div class="bg-img">
-                        <img src="./images/revies/01.png" alt="Review photo" title="revies" class="bg-img__img">
-                    </div>      
+                <div class="list__item" data-aos="flip-up">
 
+                    <div class="list__placeholder">
 
-                    
+                        <img class="list__poster" src="./images/revies/02.png" alt="man">
 
-                    <h3 class="revies__title">
+                        <button id="play-video-4" data-video="video-4" class="btn-play__video  play-video-JS">
+                            <span class="arrow-play"></span>
+                        </button>
+
+                        <div data-play-btn="play-video-4" class="video">
+                            <div class="video__wrapper">
+                                <div class="close-btn video-popup-close-JS"></div>
+                                <video id="video-4" class="video__video video-JS" 
+                                preload="none">
+                                <source src="./video/02.mp4" type="video/mp4" />
+                                </video>
+
+                            </div>
+                        </div> 
+
+                    </div>
+
+                    <h3 class="list__title">
                         Константин Пирогов
                     </h3>
 
-                    <p class="revies__text">
+                    <p class="list__text">
                         довольный клиент
                     </p>
 
                 </div>
-                
-                
                 
             </div>
         
         </div>
     </section>
 
+    <section class="section-marg_top-md">
+        <div class="container">
+            
+            <h2 class="section-title__title section-title__title_center uppercase" data-aos="fade">
+                Этапы покупки автомобиля в США
+            </h2>
+
+            <div class="successive-items successive-items_marg-top">
+            
+                <div class="successive-items__row">
+                    <div class="successive-items__item successive-items__item_arrow-right" data-aos="zoom-in-right"  >
+
+                        <div class="successive-items__content-row">
+                            <div class="successive-items__num">
+                                1
+                            </div>
+                            <h2 class="successive-items__title uppercase">
+                                покупка
+                            </h2>
+                        </div>
+    
+                        <p class="successive-items__text">
+                            Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины
+                        </p>
+                        
+                    </div>
+                    <div class="successive-items__item successive-items__item_arrow-right" data-aos="zoom-in-right" >
+    
+                        <div class="successive-items__content-row">
+                            <div class="successive-items__num">
+                                2
+                            </div>
+                            <h2 class="successive-items__title uppercase">
+                                ПЕРЕРЕГИСТРАЦИЯ АВТО
+                            </h2>
+                        </div>
+    
+                        <p class="successive-items__text">
+                            Переоформление прав собственности на автомобиль в 2020 году производится непосредственно в сервисном центре МВД (ранее МРЭО).
+                        </p>
+                        
+                    </div>
+                    <div class="successive-items__item successive-items__item_arrow-bottom " data-aos="zoom-in-down" >
+    
+                        <div class="successive-items__content-row">
+                            <div class="successive-items__num">
+                                3
+                            </div>
+                            <h2 class="successive-items__title uppercase">
+                                ДОГОВОР КУПЛИ-ПРОДАЖИ АВТОМОБИЛЯ
+                            </h2>
+                        </div>
+    
+                        <p class="successive-items__text">
+                            Для оформления продажи авто в СЦ МВД представитель собственника должен иметь на руках нотариальную доверенность и её заверенную копию.
+                        </p>
+                        
+                    </div>
+    
+                </div>
+
+                <div class="successive-items__row successive-items__row_next">
+
+                    <div class="successive-items__item successive-items__item_arrow-left" data-aos="zoom-in-left">
+
+                        <div class="successive-items__content-row">
+                            <div class="successive-items__num">
+                                4
+                            </div>
+                            <h2 class="successive-items__title uppercase">
+                                Название четвертого шага
+                            </h2>
+                        </div>
+    
+                        <p class="successive-items__text">
+                            Сбор в пенсионный фонд 3-5% (исключительно при первой регистрации автомобиля на территории Украины). Зависит от стоимости автомобиля и размера прожиточного минимума
+                        </p>
+                        
+                    </div>
+
+                    <div class="successive-items__item successive-items__item_arrow-left" data-aos="zoom-in-left" >
+    
+                        <div class="successive-items__content-row">
+                            <div class="successive-items__num">
+                                5
+                            </div>
+                            <h2 class="successive-items__title uppercase">
+                                Название пятого шага
+                            </h2>
+                        </div>
+    
+                        <p class="successive-items__text">
+                            Закажите экспертизу ТС экспертом в сервисном центре МВД, до момента передачи денег и заключения договора купли-продажи.
+                        </p>
+                        
+                    </div>
+                    <div class="successive-items__item" data-aos="zoom-in-left" >
+    
+                        <div class="successive-items__content-row">
+                            <div class="successive-items__num">
+                                6
+                            </div>
+                            <h2 class="successive-items__title uppercase">
+                                НАЗВАНИЕ шестого ШАГА
+                            </h2>
+                        </div>
+    
+                        <p class="successive-items__text">
+                            Внимательно читайте все что написано в документах, которые подписываете.
+                        </p>
+                        
+                    </div>
+    
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-contact section-marg_top-md">
+        <div class="container container_pos-r">
+            <img class="section-bg-img section-bg-img_contact" src="./images/contact-form/viber.jpg" alt="background">          
+    
+            <div class="section-contact__wrapper section-contact__wrapper_viber ">
+                
+                <div class="section-contact__logo" data-aos="flip-left">
+                    <svg class="svg svg_contact-logo" viewBox="0 0 22 23">
+                        <use href="./images/sprite.svg#viber"></use>
+                    </svg>
+                </div>
+                
+                <div class="section-title section-title_center">
+                    <h2 class="section-title__title section-title__title_md" data-aos="fade-right">
+                        Получить готовую подборку на Viber
+                    </h2>
+                    <div class="section-title__text" data-aos="fade-left">
+                        Отправим прямо сейчас 
+                    </div>
+                </div>
+
+                <!-- === form === -->
+                <!-- === ==== === -->
+                
+                <form action="#" class="contact-form contact-form_marg-top">
+
+                    <input type="text" class="contact-form__input contact-form__input_pur" placeholder="Введите ваше имя" data-aos="fade-right">
+
+                    <input type="text" class="contact-form__input contact-form__input_pur" placeholder="Ваш Viber" data-aos="fade-up">
+
+                    <div class="contact-form__btn-wrapper" data-aos="fade-left">
+                        <button class="btn btn_gradient-or btn_contact-social uppercase" type="submit">
+                            получить подборку
+                        </button>
+                        <span class="contact-form__subtext">
+                            10 авто в вашем бюджете
+                        </span>    
+                    </div>
+
+                </form>
+            
+            </div>
+          
+        </div>
+    </section>
+
+    <section class="section-marg_top-md">
+        <div class="container">
+            <h2 class="section-title__title section-title__title_center uppercase" data-aos="fade">
+                Аукционы с которыми работаем
+            </h2>
+
+
+            <div id="auctions" class="splide">
+
+                <div class="splide__arrows slide__arrows slide__arrows_box">
+                    <button class="splide__arrow splide__arrow--prev slide__circles-btn" title="prev" data-aos="fade-left">
+                        <img src="./images/slide-arrow.svg" alt="arrow prev">
+                    </button>
+
+                    <button class="splide__arrow splide__arrow--next slide__circles-btn" title="next" data-aos="fade-right">
+                        <img class="slide__circles-arrow-180" src="./images/slide-arrow.svg" alt="arrow next">
+                    </button>
+
+                </div>
+
+                <div class="splide__track slide__track_box">
+                    <ul class="splide__list">
+
+
+                        <li class="splide__slide splide__slide_padding">
+
+                            <div class="box">
+                                
+                                <a href="#" class="box__img">
+                                    <div class="bg-img">
+                                        <img class="bg-img__img bg-img__img_contain" src="./images/auction/01.png" alt="Auction 1" title="Auction 1" >
+                                    </div>
+                                </a>
+                                    
+                                <h3 class="box__title">
+                                    название аукциона
+                                </h3>
+
+                                <div class="box__link-wrapper">
+                                    <a href="#" class="box__link">
+                                        подбробнее
+                                    </a>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li class="splide__slide splide__slide_padding">
+
+                            <div class="box">
+                                
+                                <a href="#" class="box__img">
+                                    <div class="bg-img">
+                                        <img class="bg-img__img bg-img__img_contain" src="./images/auction/02.png" alt="Auction 1" title="Auction 1" >
+                                    </div>
+                                </a>
+                                    
+                                <h3 class="box__title">
+                                    название аукциона
+                                </h3>
+                                <div class="box__link-wrapper">
+                                    <a href="#" class="box__link">
+                                        подбробнее
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </li>
+                        <li class="splide__slide splide__slide_padding">
+
+                            <div class="box">
+                                
+                                <a href="#" class="box__img">
+                                    <div class="bg-img">
+                                        <img class="bg-img__img bg-img__img_contain" src="./images/auction/03.png" alt="Auction 1" title="Auction 1" >
+                                    </div>
+                                </a>
+                                    
+                                <h3 class="box__title">
+                                    название аукциона
+                                </h3>
+                                <div class="box__link-wrapper">
+                                    <a href="#" class="box__link">
+                                        подбробнее
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </li>
+
+                        <li class="splide__slide splide__slide_padding">
+
+
+                            <div class="box">
+                                
+                                <a href="#" class="box__img">
+                                    <div class="bg-img">
+                                        <img class="bg-img__img bg-img__img_contain" src="./images/auction/04.png" alt="Auction 1" title="Auction 1" >
+                                    </div>
+                                </a>
+                                    
+                                <h3 class="box__title">
+                                    название аукциона
+                                </h3>
+                                <div class="box__link-wrapper">
+                                    <a href="#" class="box__link">
+                                        подбробнее
+                                    </a>
+                                </div>
+                            </div>
+
+                        
+                        </li>
+                        <li class="splide__slide splide__slide_padding">
+
+                            <div class="box">
+                                
+                                <a href="#" class="box__img">
+                                    <div class="bg-img">
+                                        <img class="bg-img__img bg-img__img_contain" src="./images/auction/05.png" alt="Auction 1" title="Auction 1" >
+                                    </div>
+                                </a>
+                                    
+                                <h3 class="box__title">
+                                    название аукциона
+                                </h3>
+                                <div class="box__link-wrapper">
+                                    <a href="#" class="box__link">
+                                        подбробнее
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </li>
+                        <li class="splide__slide splide__slide_padding">
+
+                            <div class="box">
+                                
+                                <a href="#" class="box__img">
+                                    <div class="bg-img">
+                                        <img class="bg-img__img bg-img__img_contain" src="./images/auction/06.png" alt="Auction 1" title="Auction 1" >
+                                    </div>
+                                </a>
+                                    
+                                <h3 class="box__title">
+                                    название аукциона
+                                </h3>
+                                <div class="box__link-wrapper">
+                                    <a href="#" class="box__link">
+                                        подбробнее
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </li>
+                        <li class="splide__slide splide__slide_padding">
+
+                            <div class="box">
+                                
+                                <a href="#" class="box__img">
+                                    <div class="bg-img">
+                                        <img class="bg-img__img bg-img__img_contain" src="./images/auction/07.png" alt="Auction 1" title="Auction 1" >
+                                    </div>
+                                </a>
+                                    
+                                <h3 class="box__title">
+                                    название аукциона
+                                </h3>
+                                <div class="box__link-wrapper">
+                                    <a href="#" class="box__link">
+                                        подбробнее
+                                    </a>
+                                </div>
+                            </div>
+                        
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="section-marg_top-md">
+        <div class="container">
+            <h2 class="section-title__title section-title__title_center uppercase" data-aos="fade">
+                Часто задаваемые вопросы
+            </h2>
+
+
+            <div class="accordion accordion_marg-top" data-aos="fade">
+            
+                <div class="accordion__item accordion-item-JS"> <!-- accordion__item_active -->
+                    
+                    <div class="accordion__header">
+                        <h3 class="accordion__title accordion__title-JS"> <!-- accordion__title_active -->
+                            Что мы предлагаем?
+                        </h3>
+
+                        <div class="accordion__btn accordion__btn-JS"> <!-- accordion__btn_active -->
+                            <svg class="svg accordion__arrow" viewBox="0 0 256 256">
+                                <use href="./images/sprite.svg#accor-arrow"/>
+                            </svg>    
+                        </div>
+                    </div>
+                
+                    <div class="accordion__main accordion__main-JS "> <!-- accordion__main_active -->
+                        
+                        <div class="accordion__content"> 
+                            
+                            <div class="accordion__text">
+                                Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования. Letraset включены Lorem Ipsum проходы в арсеналом шрифтов, стилей и размеров, затвердевание место Латинского-эск фразу целиком в печатной и графической индустрии. Те, с вниманием к деталям будет даже поймали дань классического текста в эпизоде Mad Men (S6E1 вокруг 1:18:55 для тех, кто не сделал).
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="accordion__item accordion-item-JS"> <!-- accordion__item_active -->
+                    
+                    <div class="accordion__header">
+                        <h3 class="accordion__title accordion__title-JS"> <!-- accordion__title_active -->
+                            Что мы предлагаем?
+                        </h3>
+
+                        <div class="accordion__btn accordion__btn-JS"> <!-- accordion__btn_active -->
+                            <svg class="svg accordion__arrow" viewBox="0 0 256 256">
+                                <use href="./images/sprite.svg#accor-arrow"/>
+                            </svg>    
+                        </div>
+                    </div>
+                
+                    <div class="accordion__main accordion__main-JS "> <!-- accordion__main_active -->
+                        
+                        <div class="accordion__content"> 
+                            
+                            <div class="accordion__text">
+                                Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования. Letraset включены Lorem Ipsum проходы в арсеналом шрифтов, стилей и размеров, затвердевание место Латинского-эск фразу целиком в печатной и графической индустрии. Те, с вниманием к деталям будет даже поймали дань классического текста в эпизоде Mad Men (S6E1 вокруг 1:18:55 для тех, кто не сделал).
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="accordion__item accordion-item-JS"> <!-- accordion__item_active -->
+                    
+                    <div class="accordion__header">
+                        <h3 class="accordion__title accordion__title-JS"> <!-- accordion__title_active -->
+                            Что мы предлагаем?
+                        </h3>
+
+                        <div class="accordion__btn accordion__btn-JS"> <!-- accordion__btn_active -->
+                            <svg class="svg accordion__arrow" viewBox="0 0 256 256">
+                                <use href="./images/sprite.svg#accor-arrow"/>
+                            </svg>    
+                        </div>
+                    </div>
+                
+                    <div class="accordion__main accordion__main-JS "> <!-- accordion__main_active -->
+                        
+                        <div class="accordion__content"> 
+                            
+                            <div class="accordion__text">
+                                Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования. Letraset включены Lorem Ipsum проходы в арсеналом шрифтов, стилей и размеров, затвердевание место Латинского-эск фразу целиком в печатной и графической индустрии. Те, с вниманием к деталям будет даже поймали дань классического текста в эпизоде Mad Men (S6E1 вокруг 1:18:55 для тех, кто не сделал).
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="accordion__item accordion-item-JS"> <!-- accordion__item_active -->
+                    
+                    <div class="accordion__header">
+                        <h3 class="accordion__title accordion__title-JS"> <!-- accordion__title_active -->
+                            Что мы предлагаем?
+                        </h3>
+
+                        <div class="accordion__btn accordion__btn-JS"> <!-- accordion__btn_active -->
+                            <svg class="svg accordion__arrow" viewBox="0 0 256 256">
+                                <use href="./images/sprite.svg#accor-arrow"/>
+                            </svg>    
+                        </div>
+                    </div>
+                
+                    <div class="accordion__main accordion__main-JS "> <!-- accordion__main_active -->
+                        
+                        <div class="accordion__content"> 
+                            
+                            <div class="accordion__text">
+                                Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования. Letraset включены Lorem Ipsum проходы в арсеналом шрифтов, стилей и размеров, затвердевание место Латинского-эск фразу целиком в печатной и графической индустрии. Те, с вниманием к деталям будет даже поймали дань классического текста в эпизоде Mad Men (S6E1 вокруг 1:18:55 для тех, кто не сделал).
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="accordion__item accordion-item-JS"> <!-- accordion__item_active -->
+                    
+                    <div class="accordion__header">
+                        <h3 class="accordion__title accordion__title-JS"> <!-- accordion__title_active -->
+                            Что мы предлагаем?
+                        </h3>
+
+                        <div class="accordion__btn accordion__btn-JS"> <!-- accordion__btn_active -->
+                            <svg class="svg accordion__arrow" viewBox="0 0 256 256">
+                                <use href="./images/sprite.svg#accor-arrow"/>
+                            </svg>    
+                        </div>
+                    </div>
+                
+                    <div class="accordion__main accordion__main-JS "> <!-- accordion__main_active -->
+                        
+                        <div class="accordion__content"> 
+                            
+                            <div class="accordion__text">
+                                Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования. Letraset включены Lorem Ipsum проходы в арсеналом шрифтов, стилей и размеров, затвердевание место Латинского-эск фразу целиком в печатной и графической индустрии. Те, с вниманием к деталям будет даже поймали дань классического текста в эпизоде Mad Men (S6E1 вокруг 1:18:55 для тех, кто не сделал).
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="accordion__item accordion-item-JS"> <!-- accordion__item_active -->
+                    
+                    <div class="accordion__header">
+                        <h3 class="accordion__title accordion__title-JS"> <!-- accordion__title_active -->
+                            Что мы предлагаем?
+                        </h3>
+
+                        <div class="accordion__btn accordion__btn-JS"> <!-- accordion__btn_active -->
+                            <svg class="svg accordion__arrow" viewBox="0 0 256 256">
+                                <use href="./images/sprite.svg#accor-arrow"/>
+                            </svg>    
+                        </div>
+                    </div>
+                
+                    <div class="accordion__main accordion__main-JS "> <!-- accordion__main_active -->
+                        
+                        <div class="accordion__content"> 
+                            
+                            <div class="accordion__text">
+                                Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования. Letraset включены Lorem Ipsum проходы в арсеналом шрифтов, стилей и размеров, затвердевание место Латинского-эск фразу целиком в печатной и графической индустрии. Те, с вниманием к деталям будет даже поймали дань классического текста в эпизоде Mad Men (S6E1 вокруг 1:18:55 для тех, кто не сделал).
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="accordion__item accordion-item-JS"> <!-- accordion__item_active -->
+                    
+                    <div class="accordion__header">
+                        <h3 class="accordion__title accordion__title-JS"> <!-- accordion__title_active -->
+                            Что мы предлагаем?
+                        </h3>
+
+                        <div class="accordion__btn accordion__btn-JS"> <!-- accordion__btn_active -->
+                            <svg class="svg accordion__arrow" viewBox="0 0 256 256">
+                                <use href="./images/sprite.svg#accor-arrow"/>
+                            </svg>    
+                        </div>
+                    </div>
+                
+                    <div class="accordion__main accordion__main-JS "> <!-- accordion__main_active -->
+                        
+                        <div class="accordion__content"> 
+                            
+                            <div class="accordion__text">
+                                Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования. Letraset включены Lorem Ipsum проходы в арсеналом шрифтов, стилей и размеров, затвердевание место Латинского-эск фразу целиком в печатной и графической индустрии. Те, с вниманием к деталям будет даже поймали дань классического текста в эпизоде Mad Men (S6E1 вокруг 1:18:55 для тех, кто не сделал).
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+            
+            
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-contact section-marg_top-md">
+        <div class="container container_pos-r">
+            <img class="section-bg-img section-bg-img_contact" src="./images/contact-form/viber.jpg" alt="background">          
+    
+            <div class="section-contact__wrapper section-contact__wrapper_orange ">
+                
+                <div class="section-title section-title_center">
+                    <h2 class="section-title__title section-title__title_md" data-aos="fade-right">
+                        Не нашли нужного ответа?
+                    </h2>
+                    <div class="section-title__text" data-aos="fade-left">
+                        Заполните форму и мы проконсультируем Вам по любому вопросу
+                    </div>
+                </div>
+
+                <!-- === form === -->
+                <!-- === ==== === -->
+                
+                <form action="#" class="contact-form contact-form_marg-top">
+
+                    <input type="text" class="contact-form__input contact-form__input_pur" placeholder="Введите ваше имя" data-aos="fade-right">
+
+                    <input type="text" class="contact-form__input contact-form__input_pur" placeholder="Введите ваш номер телефона" data-aos="fade-up">
+
+                    <button class="btn btn_gradient-or btn_contact-social btn_contact-social-color uppercase" type="submit" data-aos="fade-left">
+                        получить подборку
+                    </button>
+
+                </form>
+            
+            </div>
+          
+        </div>
+    </section>
+
+    <section class="section-marg_top-md">
+        <div class="container">
+
+            <div class="map-wrapper">
+
+                <div id="map" class="map"></div>
+
+
+                <div class="map-content" data-aos="zoom-in">
+
+                    <div class="map-content__item">
+
+                        <div class="map-content__row">
+
+                            <svg class="svg svg_icon" viewBox="0 0 13 13">
+                                <use href="./images/sprite.svg#phone"/>
+                            </svg>
+                            <a href="tel:+380-93-616-44-41" class="map-content__text text-hover">
+                                +38 (093) 616-44-41	 
+                            </a>
+                        
+                        </div>
+                        <div class="map-content__row">
+
+                            <svg class="svg svg_icon" viewBox="0 0 13 13">
+                                <use href="./images/sprite.svg#phone"/>
+                            </svg>
+                            <a href="tel:+380-93-616-44-41" class="map-content__text text-hover">
+                                +38 (093) 616-44-41	 
+                            </a>
+                        
+                        </div>
+                        <div class="map-content__row">
+
+                            <svg class="svg svg_icon" viewBox="0 0 20 15">
+                                <use href="./images/sprite.svg#mail"/>
+                            </svg>
+                            <a href="mailto:dealer@gmail.com" class="map-content__text text-hover">
+                                dealer@gmail.com
+                            </a>
+                        
+                        </div>
+                        <div class="map-content__row">
+
+                            <svg class="svg svg_icon" viewBox="0 0 17 22">
+                                <use href="./images/sprite.svg#mark"/>
+                            </svg>
+                            <a href="#" class="map-content__text text-hover">
+                                г. Киев, Улица, Номер дома
+                            </a>
+                        
+                        </div>
+                        <div class="map-content__row">
+
+                            <p class="map-content__txt">
+                                Мессенджеры:
+                            </p>
+
+                            <a href="#" class="social__link social__link_marg social__link_telegram">
+                                <svg class="svg svg_social" viewBox="0 0 20 18">
+                                    <use href="./images/sprite.svg#telegram"/>
+                                </svg>
+                            </a>
+                
+                            <a href="#" class="social__link social__link_marg social__link_viber">
+                                <svg class="svg svg_social" viewBox="0 0 22 23">
+                                    <use href="./images/sprite.svg#viber"/>
+                                </svg>
+                            </a>
+                        
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-marg_top-md">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+                <h2 class="section-title__title section-title__title_line">
+                    читайте наш блог
+                </h2>
+
+                <div class="line"></div>
+
+                <button class="btn section-title__btn_line btn_gradient-or">
+                    смотреть все
+                </button>
+            </div>
+    
+
+            <div class="list list_marg">
+                
+
+                <div class="list__item" data-aos="flip-down">
+
+                    <div class="list__placeholder">
+
+                        <img class="list__poster" src="./images/revies/01.png" alt="man">
+
+                    </div>
+
+                    <h3 class="list__title list__title_small">
+                        Название публикации возможно в несколько строк
+                    </h3>
+
+                    <p class="list__text">
+                        Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в.
+                    </p>
+
+                </div>
+             
+
+                <div class="list__item" data-aos="flip-up">
+
+                    <div class="list__placeholder">
+
+                        <img class="list__poster" src="./images/revies/02.png" alt="man">
+
+                    </div>
+
+                    <h3 class="list__title list__title_small">
+                        Название публикации возможно в несколько строк
+                    </h3>
+
+                    <p class="list__text">
+                        Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в.
+                    </p>
+
+                </div>
+             
+
+                <div class="list__item" data-aos="flip-down">
+
+                    <div class="list__placeholder">
+
+                        <img class="list__poster" src="./images/revies/01.png" alt="man">
+
+                    </div>
+
+                    <h3 class="list__title list__title_small">
+                        Название публикации возможно в несколько строк
+                    </h3>
+
+                    <p class="list__text">
+                        Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в.
+                    </p>
+
+                </div>
+             
+
+                <div class="list__item" data-aos="flip-up">
+
+                    <div class="list__placeholder">
+
+                        <img class="list__poster" src="./images/revies/02.png" alt="man">
+
+                    </div>
+
+                    <h3 class="list__title list__title_small">
+                        Название публикации возможно в несколько строк
+                    </h3>
+
+                    <p class="list__text">
+                        Пять столетий спустя Lorem Ipsum испытал всплеск популярности с выпуском сухого переноса листов Letraset в.
+                    </p>
+
+                </div>
+                
+            </div>
+        
+        </div>
+    </section>
+
+    <section class="section-gray section-marg_top-md">
+        <div class="container">
+
+            <div class="info">
+                
+                <div class="section-title">
+                    <h2 class="section-title__title section-title__title_small">
+                        Заголовок с названием сео-текста
+                    </h2>
+                </div>
+
+                <div class="info__wrapper">
+                
+                    <div class="info__item">
+                        <p class="info__text">
+                            Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий.Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. 
+                        </p>
+                    </div>
+
+                    <div class="info__item">
+                        <p class="info__text">
+                            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.
+                        </p>
+        
+                        <p class="info__text info__text_marg-top">
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                        </p>
+                    </div>
+
+                    <div class="info__item">
+                        <p class="info__text">
+                            Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий.Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. 
+                        </p>
+                    </div>
+
+                    <div class="info__item">
+                        <p class="info__text">
+                            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.
+                        </p>
+        
+                        <p class="info__text info__text_marg-top">
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                        </p>
+                    </div>
+                    <div class="info__item">
+                        <p class="info__text">
+                            Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий.Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. 
+                        </p>
+                    </div>
+
+                    <div class="info__item">
+                        <p class="info__text">
+                            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.
+                        </p>
+        
+                        <p class="info__text info__text_marg-top">
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                        </p>
+                    </div>
+                    <div class="info__item">
+                        <p class="info__text">
+                            Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий.Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. 
+                        </p>
+                    </div>
+
+                    <div class="info__item">
+                        <p class="info__text">
+                            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.
+                        </p>
+        
+                        <p class="info__text info__text_marg-top">
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки 
+                        </p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
 </main>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<footer class="footer">
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+        <div class="footer-header">
+            <div class="container">
+            
+                <div class="footer-header__wrapper">
+                    <img class="footer__logo" src="./images/light-logo.png" alt="logo" title="logo">
+                
+                    <button class="btn btn_gradient-pur footer__btn uppercase">
+                        Внести депозит
+                    </button>
+                    
+                    <div class="social-block social-block_marg-left">
+        
+                        <p class="social-block__text uppercase">
+                            МЫ В МЕССЕНЖЕРАХ
+                        </p>
+            
+                        <div class="social-block__item">
+            
+                            <a href="#" class="social-block__link social-block__link_telegram">
+                                <svg class="svg svg_social-block" viewBox="0 0 20 18">
+                                    <use href="./images/sprite.svg#telegram"/>
+                                </svg>
+                            </a>
+                
+                            <a href="#" class="social-block__link social-block__link_viber">
+                                <svg class="svg svg_social-block" viewBox="0 0 22 23">
+                                    <use href="./images/sprite.svg#viber"/>
+                                </svg>
+                            </a>
+            
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+        <div class="container">
+            <div class="footer__main">
+                
+                <div class="footer-item">
+                    <h3 class="footer-item__title uppercase">
+                        Контакты
+                    </h3>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+                    <ul class="footer-list footer-list_marg-top">
+                        <li class="footer-list__item">
+                            <svg class="svg svg_icon" viewBox="0 0 13 13">
+                                <use href="./images/sprite.svg#phone"/>
+                            </svg>
+                            <a href="tel:+380-93-616-44-41" class="footer-list__link text-hover">
+                                +38 (093) 616-44-41	 
+                            </a>
+                        </li>
+                        <li class="footer-list__item">
+                            <svg class="svg svg_icon" viewBox="0 0 13 13">
+                                <use href="./images/sprite.svg#phone"/>
+                            </svg>
+                            <a href="tel:+380-93-616-44-41" class="footer-list__link text-hover">
+                                +38 (093) 616-44-41	 
+                            </a>
+                        </li>
+                        <li class="footer-list__item">
+                            <svg class="svg svg_icon" viewBox="0 0 17 22">
+                                <use href="./images/sprite.svg#mark"/>
+                            </svg>
+                            <a href="https://goo.gl/maps/NhtWwvgghNXiw7dn6" target="_blank" class="footer-list__link text-hover">
+                                5031 S.W. 100th Avenue
+                                Cooper City FL 33328
+                            </a>
+                        </li>
+                        <li class="footer-list__item">
+                            <svg class="svg svg_icon" viewBox="0 0 20 15">
+                                <use href="./images/sprite.svg#mail"/>
+                            </svg>
+
+                            <a href="mailto:dealer@gmail.com" class="footer-list__item text-hover">
+                                dealer@gmail.com
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                
+                <div class="footer-item">
+                    <h3 class="footer-item__title uppercase">
+                        Меню сайта
+                    </h3>
+
+                    <div class="footer-item__wrapper">
+                        <ul class="footer-list footer-list_marg-top">
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    о нас
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    отзывы
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    акции
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Вакансии
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    новости
+                                </a>
+                            </li>
+                        </ul>
+        
+                        <ul class="footer-list footer-list_marg-top">
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    кридет
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    сотрудничество
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    страхование
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Доставка / Растаможка
+                                </a>
+                            </li>
+                    
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div class="footer-item">
+                    <h3 class="footer-item__title uppercase">
+                        авто по бюджетам
+                    </h3>
+                
+                    <div class="footer-item__wrapper footer-item__wrapper_gap-big footer-item__wrapper_marg-big">
+
+                        <ul class="footer-list footer-list_marg-top footer-list_marg-top">
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                    
+                        </ul>
+
+                        <ul class="footer-list footer-list_marg-top footer-list_marg-top">
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                            <li class="footer-list__item">
+                                <a href="#" class="footer-list__link text-hover">
+                                    Авто от 7 до 10$ тыс 
+                                </a>
+                            </li>
+                    
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    
+        <div class="footer-bottom footer-bottom_marg-top">
+            <div class="container">
+                <div class="footer-bottom__wrapper">
+                    <p>
+                        Copyright © 2020. All rights reserved.
+                    </p>
+        
+                    <div class="footer-info">
+                        <p class="footer-info__text">
+                            Разработка сайта
+                        </p>
+        
+                        <img src="./images/our-logo.png" alt="logo" title="logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+<!-- aos -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- map -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <!-- splide -->
 <script src="./libs/splide-2.4.21/dist/js/splide.min.js"></script>
 <!-- my script -->
