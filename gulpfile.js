@@ -15,7 +15,7 @@ let path = {
         html: sourceFolder + '/',
         css: sourceFolder + '/scss/style.scss',
         js: sourceFolder + '/js/main.js',
-        img: sourceFolder + '/images/**/*.{jpg, png, svg, ico, webp}',
+        img: sourceFolder + '/images/**/*',
         fonts: sourceFolder + '/fonts/**/*.ttf',
     },
     // Пути куда я буду выгружать файлы .min
@@ -127,6 +127,7 @@ function build() {
         sourceFolder + '/css/style.min.css',
         sourceFolder + '/fonts/**/*',
         sourceFolder + '/js/main.min.js',
+        sourceFolder + '/libs/**/*',
         sourceFolder + '/*.html'
     ], {base: sourceFolder})
         .pipe(dest(projectFodler))
