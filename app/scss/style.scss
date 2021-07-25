@@ -116,7 +116,7 @@ button {
 
         fill: $main-color;
     }
-    &_contact-logo {
+    &_contact-logo__img {
         width: 100%;
         max-width: 54px;
         height: 100%;
@@ -213,6 +213,10 @@ button {
         transition: transform .5s ease-in-out;
 
         background: $color-dark-theme;
+
+        @media (max-width: 400px) {
+            top: 4.7rem;
+        }
     }
 
     &_active {
@@ -1724,15 +1728,33 @@ button {
         }
     }
 
-    &__logo {
-        display: inline-block;
-        padding: 1.4rem;
-        background: $viber-color;
-        border-radius: 30px;
+    &-logo {
+        width: 100%;
+        
+        display: flex;
+        justify-content: center;
 
         position: absolute;
         top: -15%;
-        left: calc(50% - 26px);
+        left: 0;
+        
+        @media (max-width: $tiny) {
+            top: -10%;
+        }        
+
+        @media (max-width: 400px) {
+            display: none;
+        }
+
+        &__bg {
+            display: inline-block;
+            
+            border-radius: 30px;
+            padding: 1.4rem;
+            background: $viber-color;
+
+            fill: #fff;
+        }
     }
 }
 
@@ -2640,6 +2662,7 @@ button {
 .video_active {
     display: block;
     .video__video {
+        padding: 0 10px;
         max-width: 900px;
     }
 }
