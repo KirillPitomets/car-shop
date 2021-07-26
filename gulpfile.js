@@ -128,7 +128,8 @@ function build() {
         sourceFolder + '/fonts/**/*',
         sourceFolder + '/js/main.min.js',
         sourceFolder + '/libs/**/*',
-        sourceFolder + '/*.html'
+        sourceFolder + '/video/**/*',
+        sourceFolder + '/*.html',
     ], {base: sourceFolder})
         .pipe(dest(projectFodler))
 }
