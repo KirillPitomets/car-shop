@@ -887,6 +887,7 @@ button {
     font-size: .875rem;
     line-height: 1.2;
 
+    white-space: nowrap;
     color: #FFFFFF;
 
     padding: .9rem 0.75rem;
@@ -1072,6 +1073,8 @@ button {
     font-weight: 900;
     line-height: 1.2;
     letter-spacing: 0em;
+
+    white-space: nowrap;
 
     @media (max-width: $medium) {
         font-size: 1.5rem;
@@ -3118,7 +3121,8 @@ button {
     width: 100%;
     min-height: inherit;
 
-    background: #333333;
+    background: url('../images/map/bg.jpg') center no-repeat;
+    background-size: cover;
 
     position: absolute;
     top: 0;

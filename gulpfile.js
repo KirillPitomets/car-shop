@@ -129,6 +129,7 @@ function build() {
         sourceFolder + '/js/main.min.js',
         sourceFolder + '/libs/**/*',
         sourceFolder + '/video/**/*',
+        sourceFolder + '/favicon/**/*',
         sourceFolder + '/*.html',
     ], {base: sourceFolder})
         .pipe(dest(projectFodler))
