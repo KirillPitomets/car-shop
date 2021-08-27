@@ -3796,7 +3796,7 @@ button {
     position: relative;
 
     &__toggle {
-        display: flex;
+        display: none;
         align-items: center;
 
         position: absolute;
@@ -3809,6 +3809,10 @@ button {
         background: $main-color;
 
         transform: rotate(-90deg);
+
+        @media (max-width: $medium) {
+            display: flex;
+        }
     }
 
     &__arrow {
