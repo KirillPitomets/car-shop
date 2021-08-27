@@ -20,7 +20,11 @@ const accordions = document.getElementsByClassName('accordion-item-JS');
 const callInfoBtns = document.getElementsByClassName('call-info-btn-JS');
 // toggle head
 const headToggleBtns = document.getElementsByClassName('head-toggle-JS');
-const header = document.getElementById('header')
+const header = document.getElementById('header');
+// elements for checking of numbers
+const elemtnsCheckNumbers = document.getElementsByClassName('check-number-JS');
+// little accordions btns 
+const littleAccordionsBtns = document.getElementsByClassName('accor-btn-JS');
 
 // number list
 for ( let btn of btnListNumbers ) {
@@ -37,44 +41,53 @@ for ( let btn of btnListNumbers ) {
 }
 // ========= slider / splider =========
 
-const home = new Splide( '#home', {
-    type: 'fade',
-    perPage: 1,
-    autoplay: true,
-} ).mount();
+// check for fix the error
+const homeSlider = document.getElementById('home') ? true : false;
 
-new Splide( '#auctions', {
-    type: 'loop',
-    perPage: 4,
-    perMove: 1,
-    gap: '2rem',
-    breakpoints: {
-        955: {
-            perPage: 3,
-        },
-        755: {
-            perPage: 2,
-        },
-        444: {
-            perPage: 1,
-        }
-    }
-} ).mount();
+if ( homeSlider ) {
+    const home = new Splide( '#home', {
+        type: 'fade',
+        perPage: 1,
+        autoplay: true,
+    } ).mount();
 
-// custom pagination
-
-checkForSmallNumber(home.length, homeNumAllSliders);
-
-home.on('moved', function( index ) {
-//  custom arrows
+    checkForSmallNumber(home.length, homeNumAllSliders);
+    // check for loaded page and do function 
     checkingDisabledBtnSlider(prevBtn, nextBtn, 'slide__circles-arrow_active');
 
-//  custom pagination
-    checkForSmallNumber( index + 1, homeNumActiveSlide );
+    home.on('moved', function( index ) {
+    //  custom arrows
+        checkingDisabledBtnSlider(prevBtn, nextBtn, 'slide__circles-arrow_active');
+    
+    //  custom pagination
+        checkForSmallNumber( index + 1, homeNumActiveSlide );
+    
+    });
+}
 
-});
+// check for fix the error 
+const auctionsSlider = document.getElementById('auctions') ? true : false;
 
-checkingDisabledBtnSlider(prevBtn, nextBtn, 'slide__circles-arrow_active');
+if ( auctionsSlider ) {
+    new Splide( '#auctions', {
+        type: 'loop',
+        perPage: 4,
+        perMove: 1,
+        gap: '2rem',
+        breakpoints: {
+            955: {
+                perPage: 3,
+            },
+            755: {
+                perPage: 2,
+            },
+            444: {
+                perPage: 1,
+            }
+        }
+    } ).mount();
+    
+}
 
 // ======= drop menu ======
 
@@ -144,6 +157,41 @@ for ( let btn of headToggleBtns ) {
 
 AOS.init();
 
+// checking for numbers
+
+for ( let el of elemtnsCheckNumbers ) {
+
+    el.addEventListener('input', function() {
+    
+        let checkValue = checkForNumber( el.value );
+
+        if ( !checkValue ) {
+            el.classList.add('no-valid');
+            el.value = removingLastLetter( el.value );
+        } else {
+            el.classList.remove('no-valid');
+        }
+        
+    });
+    // checking focus on element
+    el.addEventListener('blur', function() {
+         
+        el.classList.remove('no-valid');
+
+    });
+
+}
+
+
+// little accordions
+
+for ( let btn of littleAccordionsBtns ) {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        toggleLittleAccordion( btn );
+    });
+}
 
 // ======= functions
 
@@ -224,7 +272,7 @@ function dropDownSheet ( btn ) {
     let btnContent = btn.querySelector('.buttom-content-JS');
     let btnArrow = btn.querySelector('.arrow-JS');
     
-    let carInputId = btn.getAttribute('data-car-input');
+    let carInputId = btn.getAttribute('data-select-input');
     let carInput = document.getElementById(carInputId);
 
 
@@ -309,9 +357,7 @@ function popupVideoCloseOpen ( video, playBtnClassName ) {
 function lockScroll ( lock ) {
     // checking for mobile device
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-
         return;
-    
     } else {
         const body = document.body;
         const lockElements = document.getElementsByClassName('lock-JS');
@@ -372,14 +418,15 @@ function checkMapLoading () {
         });
 
         // ======= map theme ======
-        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             foo: 'bar',
             
             maxZoom: 100,
 
-            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 
         }).addTo(map);
+
 
         L.marker([50.46885670676126, 30.58918099065033], {icon: customIcon}).addTo(map);
 
@@ -447,7 +494,30 @@ function animationToggleBtnSecondStep ( toggleBtn) {
 
 }
 
+function checkForNumber ( value ) {
+    const pattern = /^[0-9]+$/;
 
+    return pattern.test( value ) ? true : false;
+    
+}
+
+function removingLastLetter ( value ) {
+    return value.slice(0, -1);
+}
+
+function toggleLittleAccordion ( btn ) {
+
+    const listId = btn.getAttribute('data-list');
+    const list = document.getElementById(listId);
+
+    const icon = btn.querySelector('.btn-ico');
+
+    list.classList.toggle('little-accordion__list_active')
+    icon.classList.toggle('btn-ico_active');
+
+
+}
 
 // ======= DOMContentLoaded ======
 });
+
