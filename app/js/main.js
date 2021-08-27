@@ -25,6 +25,8 @@ const header = document.getElementById('header');
 const elemtnsCheckNumbers = document.getElementsByClassName('check-number-JS');
 // little accordions btns 
 const littleAccordionsBtns = document.getElementsByClassName('accor-btn-JS');
+// filtr btn
+const filtersToggle = document.getElementById('filtres-toggle');
 
 // number list
 for ( let btn of btnListNumbers ) {
@@ -192,6 +194,13 @@ for ( let btn of littleAccordionsBtns ) {
         toggleLittleAccordion( btn );
     });
 }
+
+// =======  filtr toggle btn
+
+filtersToggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    toggleFiltr( this );
+});
 
 // ======= functions
 
@@ -516,6 +525,26 @@ function toggleLittleAccordion ( btn ) {
     icon.classList.toggle('btn-ico_active');
 
 
+}
+
+function toggleFiltr ( btn ) {
+
+    const filtersBlockId = btn.getAttribute('data-block');
+    const filtresWrapper = document.getElementById( filtersBlockId );
+    
+    filtresWrapper.classList.toggle('filtres_active');
+
+    toggleFiltrArrow(btn);
+    
+}   
+
+function toggleFiltrArrow ( btn ) {
+
+    const arrows = btn.getElementsByClassName('filtres-form__arrow');
+
+    for ( let arrow of arrows ) {
+        arrow.classList.toggle('filtres-form__arrow_active');
+    }
 }
 
 // ======= DOMContentLoaded ======

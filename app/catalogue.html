@@ -415,13 +415,13 @@
         <div class="main-content main-content_marg-top">
 
             <!-- aside-bar  -->
-            <aside class="filtres filtres_marg-right">
+            <aside id="filtres" class="filtres filtres_marg-right">
             
                 <h3 class="filtres__title filtres__title_padding"> 
                     Фильтры
                 </h3>
 
-                <form action="POST">
+                <form class="filtres-form" action="POST">
         
                     <div class="filtres__block">
                         <div class="filtres__wrapper">
@@ -790,6 +790,21 @@
                             применить фильтры
                         </button>
                     </div>
+
+                    <button id="filtres-toggle" class="filtres-form__toggle" data-block="filtres">
+                        <svg class="svg filtres-form__arrow" viewBox="0 0 12 18">   
+                            <!-- filtres-form__arrow_active -->
+                            <use href="./images/sprite.svg#arrow-pag"/>
+                        </svg>
+
+                        <span class="filtres-form__text">
+                            Фильтры
+                        </span>
+                        
+                        <svg class="svg filtres-form__arrow" viewBox="0 0 12 18">   
+                            <use href="./images/sprite.svg#arrow-pag"/>
+                        </svg>
+                    </button>
 
                 </form>
 

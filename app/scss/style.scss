@@ -537,6 +537,10 @@ button {
 
 .main-shop {
     width: 76%;
+
+    @media (max-width: $medium) {
+        width: 100%;
+    }
 }
 // ========= btn ========
 
@@ -617,6 +621,8 @@ button {
         height: 10px;
         
         position: relative;
+
+        margin-left: 5px;
 
         transition: transform .2s ease;
 
@@ -1852,7 +1858,7 @@ button {
 }
 
 
-// ======= select-drop / select ======
+// ======= drop / select ======
 
 .select {
     position: relative;
@@ -1913,6 +1919,8 @@ button {
         border-radius: 4px;
         background: $light-bg-input;
         
+        white-space: nowrap;
+
         position: relative;
 
         &:focus,
@@ -3624,10 +3632,23 @@ button {
         align-items: center;
 
         padding: 25px;
+
+        @media (max-width: 1024px) {
+            justify-content: space-around;
+        }
+        
+        @media (max-width: $xs) {
+            flex-direction: column-reverse;        
+        }
+
     }
 
     &__item {
         width: 33%;
+
+        @media (max-width: $xs) {
+            width: 100%;
+        }
     }
 
     &__title {
@@ -3647,6 +3668,10 @@ button {
     display: flex;
     justify-content: flex-end;
     
+    @media (max-width: 1024px) {
+        display: none;
+    }
+
     // elements
 
     &__item {
@@ -3694,11 +3719,30 @@ button {
 
     box-shadow: 0px 4px 48px 0px rgba(208, 210, 231, 1);
     border-radius: 16px;
+
+    @media (max-width: $medium) {
+        width: 70%;
+        height: unset;
+
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        z-index: 2;
+
+        
+        transform: translateX(-100%);
+        transition: transform .2s ease;
+    }
     
     // modifiers
     &_marg-right {
         margin-right: 1.9rem;
     }
+    
+    &_active {
+        transform: translateX(0);
+    }
+
     // elements
     &__wrapper {
         padding: 1.5rem;
@@ -3718,7 +3762,7 @@ button {
         }
     }
 
-    &__block {
+    &__block:not(:last-child) {
         border-bottom: 1px solid $border-header;
     }
 
@@ -3730,17 +3774,64 @@ button {
         box-sizing: border-box;
         border-radius: 4px;
 
-        padding: 13px 8px;
+        padding: .8rem .5rem;
 
         transition: border .2s ease background .2s ease;
-        
     }
 
     &__btn {
-        margin: 23px auto;
+        margin: 7% auto;
+    }
+
+    &__toggle {
+        width: 100%;
+        background: $main-color
     }
 }
+// ======= filtres form ======
+.filtres-form {
+    background: #fff;
+    padding-bottom: 1px;
+    
+    position: relative;
 
+    &__toggle {
+        display: flex;
+        align-items: center;
+
+        position: absolute;
+        right: -10.5rem;
+        top: 48%;
+        z-index: -1;
+
+        padding: 0.6rem 5rem;
+        color: #fff;
+        background: $main-color;
+
+        transform: rotate(-90deg);
+    }
+
+    &__arrow {
+        fill: none;
+        stroke: #fff;
+        transform: rotate(-90deg);
+
+        transition: transform .2s ease;
+        
+        &_active {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__text {
+        font-size: 1.2rem;
+        font-weight: 500;
+
+
+        margin: 0 15px;
+    }
+}
+// ======= filtres row ======
 .filtres-row {
     display: flex;
     justify-content: space-between;
@@ -3775,7 +3866,7 @@ button {
     }
 
 }
-
+// ======= filtres title ======
 .filtres-title {
     font-family: Montserrat;
     font-size: .87rem;
@@ -3801,7 +3892,6 @@ button {
 
 
 .range {
-    
     position: relative;
 
     margin-top: 2.5rem;
@@ -3918,7 +4008,7 @@ button {
         display: flex;
         align-items: center;
         
-        margin-top: 23px;
+        margin-top: 1.4rem;
     }
     
     &__input {
@@ -3951,7 +4041,7 @@ button {
         border: 1px solid #C2C2CB;
         
         cursor: pointer;
-        margin-right: 12px;
+        margin-right: 4.3%;
 
         transition: background  .2s ease;
 
@@ -4034,7 +4124,7 @@ button {
     align-items: center;
     // modifiers
     &_marg-top {
-        margin-top: 40px;
+        margin-top: 3.7%;
     }
     // elements
     &__arrow {
@@ -4063,12 +4153,16 @@ button {
 
         display: flex;
         justify-content: space-between;
-        
+
+        @media (max-width: 1024px) {
+            width: 63%;
+            margin-left: 3%;    
+        }
     }
     
     &__numbers {
         width: 100%;
-        margin: 0 30px;
+        margin: 0 8.5%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -4101,9 +4195,7 @@ button {
             transform: scale(0);
 
             transition: transform .2s ease;
-
         }
-
 
         &:hover {
             color: $main-color;
