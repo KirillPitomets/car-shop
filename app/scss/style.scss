@@ -1358,6 +1358,11 @@ button {
     left: 5rem;
     z-index: 2;
 
+    @media (max-height: 790px ) {
+        left: 1rem;
+        bottom: 3rem;
+    }
+
     &_box {
         width: 110%;
         
@@ -1374,6 +1379,8 @@ button {
             z-index: 20;
         }
     }
+
+
 }
 
 .slide__circles-arrow {
@@ -4126,6 +4133,11 @@ button {
 .shop-pagination {
     display: flex;
     align-items: center;
+
+    @media (max-width: $small) {
+        justify-content: space-between;
+    }
+
     // modifiers
     &_marg-top {
         margin-top: 3.7%;
@@ -4161,6 +4173,9 @@ button {
         @media (max-width: 1024px) {
             width: 63%;
             margin-left: 3%;    
+        }
+        @media (max-width: $small) {
+            width: 50%;
         }
     }
     

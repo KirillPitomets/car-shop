@@ -28,6 +28,7 @@ const littleAccordionsBtns = document.getElementsByClassName('accor-btn-JS');
 // filtr btn
 const filtersToggle = document.getElementById('filtres-toggle');
 
+
 // number list
 for ( let btn of btnListNumbers ) {
     
@@ -159,22 +160,25 @@ for ( let btn of headToggleBtns ) {
 
 AOS.init();
 
-// checking for numbers
+// checking for valid
 
 for ( let el of elemtnsCheckNumbers ) {
 
     el.addEventListener('input', function() {
     
-        let checkValue = checkForNumber( el.value );
+        let checkValue = checkForValid( el.value );
 
         if ( !checkValue ) {
+
             el.classList.add('no-valid');
             el.value = removingLastLetter( el.value );
+
         } else {
             el.classList.remove('no-valid');
         }
         
     });
+
     // checking focus on element
     el.addEventListener('blur', function() {
          
@@ -201,6 +205,17 @@ filtersToggle.addEventListener('click', function (e) {
     e.preventDefault();
     toggleFiltr( this );
 });
+
+// input mask
+// let mask = IMask(element, maskOptions);
+
+// mask.updateOptions({mask: Number});
+
+// mask.typedValue = 100;  // use number
+
+// console.log(mask.value);  // "100"
+// console.log(mask.unmaskedValue);  // "100"
+// console.log(mask.typedValue);  // 100
 
 // ======= functions
 
@@ -503,11 +518,12 @@ function animationToggleBtnSecondStep ( toggleBtn) {
 
 }
 
-function checkForNumber ( value ) {
-    const pattern = /^[0-9]+$/;
+function checkForValid ( value ) {
 
-    return pattern.test( value ) ? true : false;
-    
+    const regEx = /^[0-9]+$/;
+    return regEx.test( value );
+
+
 }
 
 function removingLastLetter ( value ) {

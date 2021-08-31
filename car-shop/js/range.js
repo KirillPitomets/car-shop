@@ -78,5 +78,6 @@ function fillColor ( rangeMin, rangeMax, rangeMaxValue ) {
     
     let percentMax = ( rangeMax.value / rangeMaxValue ) * 100;
 
-    rangePriceTrack.style.background = `linear-gradient( to right, #E0E1EB ${percentMin}%, #FF9E7B ${percentMin}%, #FF9E7B ${percentMax}%, #E0E1EB ${percentMax}% )`
+    rangePriceTrack.style.background = `linear-gradient( to right, #E0E1EB ${percentMin}%, #FF9E7B ${percentMin}%, #FF9E7B ${percentMax}%, #E0E1EB ${percentMax}% )`;
 }
+
