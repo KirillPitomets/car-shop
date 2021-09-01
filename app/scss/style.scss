@@ -4135,7 +4135,7 @@ button {
     align-items: center;
 
     @media (max-width: $small) {
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     // modifiers
