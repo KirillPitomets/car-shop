@@ -40,8 +40,8 @@ const   { src, dest, watch, parallel, series }  = require('gulp');
 
 let fs = require('fs');
 
-const   scss            = require('gulp-sass');
-const   concat          = require('gulp-concat');
+const   scss            = require('gulp-sass'); //  sass/scss > css
+const   concat          = require('gulp-concat'); // 
 const { reload }        = require('browser-sync');
 const   browserSync     = require('browser-sync').create();
 const   uglify          = require('gulp-uglify-es').default;
@@ -90,6 +90,14 @@ function scripts() {
         .pipe(dest(path.dest.js))
         .pipe(browserSync.stream())
 }
+
+
+
+function otherScripts() {
+    return src( `${path.src}/js` )
+}
+
+
 
 function styles() {
     return src(path.src.css)
