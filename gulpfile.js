@@ -15,6 +15,7 @@ let path = {
         html: sourceFolder + '/',
         css: sourceFolder + '/scss/style.scss',
         js: sourceFolder + '/js/main.js',
+        otherJs: sourceFolder + '/js/*.js',
         img: sourceFolder + '/images/**/*',
         fonts: sourceFolder + '/fonts/**/*.ttf',
     },
@@ -35,23 +36,22 @@ let path = {
     clean: `./${projectFodler}/`
 };
 
-
 const   { src, dest, watch, parallel, series }  = require('gulp');
 
 let fs = require('fs');
 
 const   scss            = require('gulp-sass'); //  sass/scss > css
-const   concat          = require('gulp-concat'); // 
-const { reload }        = require('browser-sync');
-const   browserSync     = require('browser-sync').create();
-const   uglify          = require('gulp-uglify-es').default;
-const   autoprefixer    = require('gulp-autoprefixer');
-const   imagemin        = require('gulp-imagemin');
-const   del             = require('del');
-const   sourcemaps      = require('gulp-sourcemaps');
-const   ttf2woff        = require('gulp-ttf2woff');
-const   ttf2woff2       = require('gulp-ttf2woff2');
-const   fonter          = require('gulp-fonter');
+const   concat          = require('gulp-concat'); //  изменит имя файла на выходе
+const { reload }        = require('browser-sync'); // в live режиме перегружают страничку когда происходит изменение 
+const   browserSync     = require('browser-sync').create(); // в live режиме перегружают страничку когда происходит изменение 
+const   uglify          = require('gulp-uglify-es').default; // минимизирует js файл
+const   autoprefixer    = require('gulp-autoprefixer'); //  раставляет префиксы для более старых браузеров в css
+const   imagemin        = require('gulp-imagemin'); // минимизирует картинки
+const   del             = require('del'); // удаляет папку проекта которая уже была создана с помощью "gulp build"
+const   sourcemaps      = require('gulp-sourcemaps'); // добавляет map для js,scss файлов
+const   ttf2woff        = require('gulp-ttf2woff'); // с ttf2 > woff
+const   ttf2woff2       = require('gulp-ttf2woff2'); // с ttf2 > woff2
+const   fonter          = require('gulp-fonter'); // конвертор шрифтов
 
 function browsersync() {
     browserSync.init ({
@@ -90,14 +90,6 @@ function scripts() {
         .pipe(dest(path.dest.js))
         .pipe(browserSync.stream())
 }
-
-
-
-function otherScripts() {
-    return src( `${path.src}/js` )
-}
-
-
 
 function styles() {
     return src(path.src.css)
